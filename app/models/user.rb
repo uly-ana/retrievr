@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_many :dogs
-  has_many :favorites
-  has_many :activity_reviews
-  has_many :places
+  has_many :dogs, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :activity_reviews, dependent: :destroy
+  has_many :places, dependent: :destroy
   has_many :activities, class_name: 'Activity', foreign_key: :owner_id
 
   validates :first_name, presence: true
