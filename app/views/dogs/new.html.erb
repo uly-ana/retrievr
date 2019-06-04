@@ -1,0 +1,9 @@
+<%= simple_form_for [@user, @dog] do |f| %>
+  <%= f.input :name,
+              required: true %>
+  <%= f.input :my_story,
+              required: true %>
+  <div class="form-actions">
+    <%= f.button :submit, "Add doggo" %>
+  </div>
+<% end %>
