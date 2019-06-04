@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :activity_review, only: [:create]
   end
 
-  resources :order, only: [:show, :create] do
+  resources :orders, only: [:index, :show, :create, :new, :destroy] do
     resources :payments, only: [:new, :create]
   end
 
