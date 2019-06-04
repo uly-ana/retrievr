@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :login
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :dogs, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :activity_reviews, dependent: :destroy
