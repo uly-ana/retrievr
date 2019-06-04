@@ -1,2 +1,18 @@
-<h1>Activities#index</h1>
-<p>Find me in app/views/activities/index.html.erb</p>
+<h2>Check out these things to do!</h2>
+
+<div class="cards">
+  <% @activities.each do |activity| %>
+    <%= link_to activity_path(activity) do %>
+      <div class="card">
+        <div class="card-name">
+          <h5><%= activity.name %></h5>
+        </div>
+        <div class="card-description">
+          <p><%= activity.description %></p>
+          <p><%= activity.price %></p>
+          <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
