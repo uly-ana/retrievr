@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_073822) do
+ActiveRecord::Schema.define(version: 2019_06_04_081358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_073822) do
     t.integer "price_cents", default: 0, null: false
     t.integer "limit"
     t.bigint "owner_id"
+    t.string "name"
     t.index ["owner_id"], name: "index_activities_on_owner_id"
     t.index ["place_id"], name: "index_activities_on_place_id"
   end
