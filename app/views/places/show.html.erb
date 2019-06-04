@@ -2,5 +2,8 @@
 <p><%= @place.category %></p>
 <p><%= @place.dogginess_scale %></p>
 <p><%= @place.user.first_name %></p>
+<% @place.place_photos.each do |p| %>
+  <%= cl_image_tag p.photo, width: 200, height: 200 %>
+<% end %>
 
 <%= link_to "Back to list", places_path, class: 'btn btn-warning' %>

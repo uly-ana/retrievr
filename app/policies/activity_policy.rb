@@ -1,15 +1,19 @@
-class UserPolicy < ApplicationPolicy
+class ActivityPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
+  def create?
+    user.present?
+  end
+
   def show?
     true
   end
 
-  def edit?
+  def update?
     owner?
   end
 
@@ -20,6 +24,6 @@ class UserPolicy < ApplicationPolicy
   private
 
   def owner?
-    record.user == user
+    record.owner == user
   end
 end

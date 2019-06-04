@@ -6,9 +6,10 @@ class Activity < ApplicationRecord
   has_many :users, through: :guests
   monetize :price_cents
 
+  validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { minimum: 20 }
-  # validates :date, presence: true
+  validates :date, presence: true
   validates :category, presence: true
   validates :limit, presence: true
 end

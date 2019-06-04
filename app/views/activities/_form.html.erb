@@ -1,0 +1,11 @@
+<%= simple_form_for @activity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :date %>
+  <%= f.input :category %>
+  <%= f.input :limit %>
+  <%= f.input :place, collection: Place.all %>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
