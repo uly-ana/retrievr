@@ -9,7 +9,12 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.save
+    @activity.user = @user
+    if @activity.save
+      redirect_to activity_path(@activity)
+    else
+      render :new
+    end
   end
 
   def new
@@ -18,7 +23,11 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = Activity.find(params[:id])
-    Activity.destroy
+     if Activity.destroy
+      redirect_to activity_path
+    else
+      render :index
+    end
   end
 
   def edit
@@ -27,12 +36,12 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    @activity.update(params[:activity])
+    @activity.update(activity_params)
   end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :description)
+    params.require(:activity).permit(:name, :description, :category)
   end
 end
