@@ -1,2 +1,9 @@
 <h1>Activities#show</h1>
 <p>Find me in app/views/activities/show.html.erb</p>
+
+<h1><%= @activity.name %></h1>
+<p><%= @activity.category %></p>
+<p><%= @activity.description %></p>
+<p><%= @activity.user.first_name %></p>
+
+<%= link_to "Back to list", activities_path, class: 'btn btn-warning' %>
