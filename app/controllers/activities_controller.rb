@@ -18,7 +18,10 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.owner = @user
+    @place = Place.find(params[:activity][:place])
+    @activity.place = @place
     authorize @activity
+
     if @activity.save
       redirect_to activity_path(@activity)
     else

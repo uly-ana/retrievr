@@ -2,6 +2,6 @@
 <p>Category: <%= @activity.category %></p>
 <p>Description: <%= @activity.description %></p>
 <p>Creator: <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
-<p>Place: <%#= @activity.place %></p>
+<p>Place: <%= @activity.place.name %></p>
 
 <%= link_to "Back to list", activities_path, class: 'btn btn-warning' %>

@@ -1,6 +1,7 @@
 class Place < ApplicationRecord
   belongs_to :user
   has_many :place_photos, dependent: :destroy
+  has_many :activities
   accepts_nested_attributes_for :place_photos
 
   validates :user_id, presence: true
