@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_101437) do
+ActiveRecord::Schema.define(version: 2019_06_04_064518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_101437) do
     t.string "address"
     t.text "description"
     t.date "date"
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
     t.string "category"
@@ -31,6 +30,13 @@ ActiveRecord::Schema.define(version: 2019_06_03_101437) do
     t.bigint "owner_id"
     t.index ["owner_id"], name: "index_activities_on_owner_id"
     t.index ["place_id"], name: "index_activities_on_place_id"
+  end
+
+  create_table "activity_photos", force: :cascade do |t|
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_activity_photos_on_activity_id"
   end
 
   create_table "activity_reviews", force: :cascade do |t|
@@ -83,10 +89,16 @@ ActiveRecord::Schema.define(version: 2019_06_03_101437) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "place_photos", force: :cascade do |t|
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_place_photos_on_place_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "category"
     t.integer "dogginess_scale"
-    t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -112,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_101437) do
 
   add_foreign_key "activities", "places"
   add_foreign_key "activities", "users", column: "owner_id"
+  add_foreign_key "activity_photos", "activities"
   add_foreign_key "activity_reviews", "activities"
   add_foreign_key "activity_reviews", "users"
   add_foreign_key "dogs", "users"
@@ -121,5 +134,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_101437) do
   add_foreign_key "guests", "users"
   add_foreign_key "orders", "activities"
   add_foreign_key "orders", "users"
+  add_foreign_key "place_photos", "places"
   add_foreign_key "places", "users"
 end
