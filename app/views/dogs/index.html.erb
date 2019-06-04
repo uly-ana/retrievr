@@ -1,0 +1,8 @@
+<%= link_to "Add a dog", user_dogs_path(current_user) %>
+<% @dogs.each do |dog| %>
+  <ul class="list-group">
+    <li class="list-group">
+      <%= dog.name %>
+    </li>
+  </ul>
+<% end %>
