@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'profile/:id', to: 'users#show', as: :profile
   get 'profile/:id/dogs', to: 'dogs#index'
-  post 'profile/:id/dogs', to: 'dogs#create', as: :new_dog
+  get 'profile/:id/dogs/new', to: 'dogs#new', as: :user_dogs
+  post 'profile/:id/dogs/new', to: 'dogs#create', as: :new_dog
   post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
 
   resources :activities do
