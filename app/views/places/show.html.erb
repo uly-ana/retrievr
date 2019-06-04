@@ -1,0 +1,6 @@
+<h1><%= @place.name %></h1>
+<p><%= @place.category %></p>
+<p><%= @place.dogginess_scale %></p>
+<p><%= @place.user.first_name %></p>
+
+<%= link_to "Back to list", places_path, class: 'btn btn-warning' %>
