@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @places = policy_scope(Place).order(name: :asc)
+    @places = policy_scope(Place).order(id: :asc)
   end
 
   def show
@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+    @place_photos = @place.place_photos.build
     authorize @place
   end
 
@@ -22,10 +23,11 @@ class PlacesController < ApplicationController
     authorize @place
 
     if @place.save
-      flash[:notice] = 'Place successfully created'
+      params[:place][:photo].each do |p|
+        @place_photo = @place.place_photos.create!(photo: p, place_id: @place.id)
+      end
+
       redirect_to place_path(@place)
-    else
-      render :new
     end
   end
 
@@ -59,6 +61,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :category, :dogginess_scale)
+    params.require(:place).permit(:name, :category, :dogginess_scale, place_photos_attributes: [:id, :photo])
   end
 end
