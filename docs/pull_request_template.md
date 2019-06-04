@@ -1,0 +1,9 @@
+1. **Test your code**
+2. **Which issue does this pertain to (keyword + #issue)?**
+- i.e. this is to *close* #145
+3. **What's been done?**
+- ...
+4. **Things you want a second opinion on?** 
+- ... 
+5. **Additional notes for reviewer**
+- ...
