@@ -7,7 +7,6 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-    authorize @activity
   end
 
   def new
@@ -45,8 +44,8 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
 
-    if Activity.destroy
-      redirect_to activity_path
+    if @activity.destroy
+      redirect_to activities_path
     else
       render :index
     end
