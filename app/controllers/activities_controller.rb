@@ -7,6 +7,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    authorize @activity
   end
 
   def new
