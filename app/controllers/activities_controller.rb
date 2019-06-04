@@ -23,7 +23,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity = Activity.find(params[:id])
-     if Activity.destroy
+    if Activity.destroy
       redirect_to activity_path
     else
       render :index
@@ -40,6 +40,10 @@ class ActivitiesController < ApplicationController
   end
 
   private
+
+  def user
+    @user = current.usser
+  end
 
   def activity_params
     params.require(:activity).permit(:name, :description, :category)
