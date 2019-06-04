@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+  get 'activities/show'
+  get 'activities/create'
+  get 'activities/new'
+  get 'activities/destroy'
   get 'users/show'
   devise_for :users
   root to: 'pages#home'
