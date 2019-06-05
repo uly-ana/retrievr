@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :activities do
     resources :activity_review, only: [:create]
+    resources :activity_photos, only: [:create]
   end
 
   resources :orders, only: [:index, :show, :create, :new, :destroy] do
