@@ -1,4 +1,4 @@
-<%= simple_form_for @activity do |f| %>
+<%= simple_form_for @activity, html: { multipart: true } do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :address %>
@@ -6,6 +6,14 @@
   <%= f.input :category %>
   <%= f.input :limit %>
   <%= f.input :place, collection: Place.all %>
+
+  <%= f.fields_for :activity_photos do |p| %>
+    <div class="field">
+      <%= f.label :photo %>
+      <br>
+      <%= f.file_field :photo, multiple: true %>
+    </div>
+  <% end %>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
