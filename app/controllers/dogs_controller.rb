@@ -8,16 +8,17 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     @user = current_user
-    @dog.user = @user
+    # @dog.user = @user
     authorize @dog
   end
 
   def create
     @dog = Dog.new(dog_params)
-    @dog.user = current_user
+    @user = current_user
+    @dog.user = @user
     authorize @dog
     if @dog.save
-      render 'users/show'
+      redirect_to profile_path(@user)
     else
       render :new
     end
