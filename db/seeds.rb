@@ -58,6 +58,7 @@ puts '------------'
 puts 'Creating activities'
 10.times do
   Activity.create!(
+    name: Faker::Hipster.word
     address: Faker::Address.street_name,
     date: Time.at(rand * Time.now.to_i),
     category: ['dance', 'meetup', 'brunch', 'festival'].sample,
