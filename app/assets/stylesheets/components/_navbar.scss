@@ -33,3 +33,13 @@
     height: 40px;
   }
 }
+
+.secondary-links {
+  color: #F9A468;
+}
+
+@media only screen and (min-width: 1024px) {
+  .login-link {
+    margin-right: 3rem;
+  }
+}
