@@ -2,6 +2,7 @@
 <p>Category: <%= @activity.category %></p>
 <p>Description: <%= @activity.description %></p>
 <p>Creator: <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
+<p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
 <p>Place: <%= @activity.place.name %></p>
 <% @activity.activity_photos.each do |p| %>
   <%= cl_image_tag p.photo, width: 200, height: 200 %>

@@ -1,0 +1,32 @@
+<div class="filter-dropdown">
+  <div class="dropdown-content" id="dropdownFilter">
+    <div class="price-filter mb-2">
+      <p id="category"><strong>Price</strong></p>
+      <% if params[:price] == 'DESC' %>
+        <%= link_to 'Price ASC', activities_path(price: 'ASC') %>
+      <% else %>
+        <%= link_to 'Price DESC', activities_path(price: 'DESC') %>
+      <% end %>
+    </div>
+
+    <div class="category-filter">
+      <p id="category"><strong>Category</strong></p>
+      <ul class="category">
+        <li>
+          <%= link_to 'Pool', activities_path(category: 'Pool') %>
+        </li>
+        <li>
+          <%= link_to 'Feast', activities_path(category: 'Feast') %>
+        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="reset-filter">
+      <p id="category"><strong>Reset filter</strong></p>
+      <%= link_to 'Reset', activities_path %>
+    </div>
+  </div>
+</div>

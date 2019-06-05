@@ -9,12 +9,12 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  private
+
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(places_path)
   end
-
-  private
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb

@@ -1,8 +1,10 @@
 class ActivitiesController < ApplicationController
   before_action :user, only: [:create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @activities = Activity.all
+    @activities = params[:price] ? Activity.order(price_cents: params[:price]) : Activity.all
+    @activities = params[:category] ? Activity.where(category: params[:category]) : Activity.all
   end
 
   def show
@@ -46,7 +48,6 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    # @user = current_user
     @activity = Activity.find(params[:id])
     authorize @activity
 
@@ -64,6 +65,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :category, :date, :address, :limit, activity_photos_attributes: [:id, :photo])
+    params.require(:activity).permit(:name, :price, :description, :category, :date, :address, :limit, activity_photos_attributes: [:id, :photo])
   end
 end

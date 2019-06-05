@@ -3,7 +3,8 @@
   <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :date %>
-  <%= f.input :category %>
+  <%= f.input :price, placeholder: '$50.00' %>
+  <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
   <%= f.input :limit %>
   <%= f.input :place, collection: Place.all %>
 

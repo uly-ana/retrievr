@@ -8,6 +8,7 @@ class Activity < ApplicationRecord
 
   accepts_nested_attributes_for :activity_photos
 
+  validates :price, presence: true
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { minimum: 20 }
