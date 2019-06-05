@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.main-links {
+  li {
+    a {
+      color: orange !important;
+      &:hover {
+        color: #F9A468;
+      }
+    }
+  }
+}
+
+.main-links, .dropdown {
+  text-align: center;
+  font-size: 20px;
+}
+
+.navbar {
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+}
