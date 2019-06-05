@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   get 'activities_reviews/index'
   get 'activities_reviews/show'
   get 'activities_reviews/create'
