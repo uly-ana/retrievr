@@ -12,6 +12,7 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @activity_photos = @activity.activity_photos.build
     authorize @activity
   end
 
@@ -23,6 +24,9 @@ class ActivitiesController < ApplicationController
     authorize @activity
 
     if @activity.save
+      params[:activity][:photo].each do |p|
+        @activity_photo = @activity.activity_photos.create!(photo: p, activity_id: @activity.id)
+      end
       redirect_to activity_path(@activity)
     else
       render :new
