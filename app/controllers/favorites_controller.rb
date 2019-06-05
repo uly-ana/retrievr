@@ -1,12 +1,18 @@
 class FavoritesController < ApplicationController
   def create
-    @favorites = Favorite.new(params[:favorite])
-    @favorites.save
+    @favorite = Favorite.new(favorite_params)
+    @favorite.save
   end
 
   def destroy
-    @favorites = Favorite.find(params[:id])
-    Favorite.destroy
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
     # redirect_to favorites_path
+  end
+
+  private
+
+  def favorite_params
+    params.require(:favorite).permit(:user)
   end
 end
