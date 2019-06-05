@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'activities_reviews/index'
-  get 'activities_reviews/show'
-  get 'activities_reviews/create'
-  get 'activities_reviews/new'
-  get 'activities_reviews/destroy'
+
   devise_for :users
   root to: 'pages#home'
   get 'profile/:id', to: 'users#show', as: :profile
