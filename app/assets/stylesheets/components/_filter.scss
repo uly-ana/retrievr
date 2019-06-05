@@ -1,0 +1,36 @@
+.filter {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: rgba(black, .7);
+  p {
+    border-right: 1px solid black;
+    margin: 0;
+    padding: 4px 16px;
+  }
+  i {
+    align-self: center;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+}
+
+.filter-dropdown {
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+  label {
+    margin: 0;
+  }
+  #category {
+    margin: 0;
+  }
+  .category {
+    list-style: none;
+    padding: 0;
+  }
+}

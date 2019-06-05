@@ -38,6 +38,12 @@
   color: #F9A468;
 }
 
+.nav-item {
+  &:hover {
+    border-bottom: 3px solid orange;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .login-link {
     margin-right: 3rem;
