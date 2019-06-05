@@ -1,0 +1,7 @@
+<%= form_for([@activity, @activity_photo], :html => {:multipart => true}) do |f| %>
+  <%= f.hidden_field :activity_id %>
+  <p>
+    <%= f.file_field :photo %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
