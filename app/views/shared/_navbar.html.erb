@@ -1,22 +1,24 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <a class="navbar-brand" href="#">Retrievr</a> -->
+  <%= link_to root_path do %>
+    <%= image_tag "https://previews.123rf.com/images/dstarky/dstarky1701/dstarky170101131/69423991-dog-icon-or-logo-in-modern-line-style-high-quality-black-outline-pictogram-for-web-site-design-and-m.jpg", alt: "retrievr-logo", class: 'logo' %>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto main-links">
+      <li class="nav-item active">
+        <%= link_to "THINGS TO DO", activities_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "PLACES TO GO", places_path, class: 'nav-link'  %>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-0">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.avatar.present? %>
             <%= cl_image_tag current_user.avatar, class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }, width: 36, height: 36 %>
@@ -33,7 +35,10 @@
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: 'nav-link'  %>
+        </li>
       <% end %>
     </ul>
   </div>
-</div>
+</nav>
