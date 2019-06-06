@@ -44,6 +44,18 @@
   }
 }
 
+.non-login {
+  &:hover {
+    border-bottom: none !important;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .login-link {
     margin-right: 3rem;
