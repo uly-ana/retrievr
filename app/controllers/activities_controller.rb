@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     authorize @activity
-    @activity_photo = ActivityPhoto.new
+    @activity_review = ActivityReview.new
   end
 
   def new
