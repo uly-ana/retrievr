@@ -26,7 +26,7 @@
       <% if @user.bio.present? %>
         <p><%= @user.bio %></p>
       <% else %>
-        <p>This user has no bio yet</p>
+        <p><%= user.name %> has no bio yet</p>
       <% end %>
     </div>
   </div>
@@ -36,16 +36,22 @@
       <%= link_to "+", new_user_dog_path %></h4>
     <div class="all-user-dogs text-center">
       <% @user.dogs.each do |dog| %>
-        <%= dog.name %>
-        <br>
+         <p><strong><%= dog.name %></strong></p>
         <%= dog.my_story %>
+        <br>
         <br>
       <% end %>
     </div>
   </div>
 
   <div class="user-restaurants-favourites">
-    <h4 class="text-center">Favourite places</h4>
-
+    <h4 class="text-center">Favorite places</h4>
+      <% if @user.favorites.present? %>
+        <% @user.favorites.each do |favourite| %>
+           <p><strong><%= favorite.activity.name %></strong></p>
+        <% end %>
+      <% else %>
+        <p class="text-center">No favorite places added yet</p>
+      <% end %>
   </div>
 </div>
