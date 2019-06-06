@@ -1,9 +1,79 @@
-<h1><%= @place.name %></h1>
-<p><%= @place.category %></p>
-<p><%= @place.dogginess_scale %></p>
-<p><%= @place.user.first_name %></p>
-<% @place.place_photos.each do |p| %>
-  <%= cl_image_tag p.photo, width: 200, height: 200 %>
-<% end %>
+<div class="container">
+  <div class="d-flex justify-content-around align-items-center mt-3">
+    <div class="place-details-text">
+      <h3 style="color: #FE570F; font-weight: bold"><%= @place.name %></h3>
+      <p><strong>Location</strong> <%= @place.location %></p>
+      <p><strong>Category</strong> <%= @place.category %></p>
+      <% @place.dogginess_scale.times do %>
+        <%= inline_svg "dogginess_scale.svg", class: 'dogginess', width: 40, height: 40 %>
+      <% end %>
+    </div>
+    <div class="place-details-map"></div>
+  </div>
 
-<%= link_to "Back to list", places_path, class: 'btn btn-warning' %>
+  <div class="place-actions border d-flex justify-content-between align-items-center">
+    <div class="text-center">
+        <ul style="padding:0;margin:0">
+          <li style="display: inline">
+            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
+          </li>
+          <li style="display: inline">
+            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
+          </li>
+          <li style="display: inline">
+            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
+          </li>
+        </ul>
+        <p style="margin:0">Rating</p>
+    </div>
+
+    <div class="save-action">
+      <i class="fas fa-paw" style="color: #FE570F;font-size: 24px; transform: rotate(-45deg)"></i>
+      <p style="margin:0">Save</p>
+    </div>
+
+    <div class="direction-action text-center">
+      <i class="fas fa-directions" style="color: #FE570F;font-size: 24px;"></i>
+      <p style="margin:0">Directions</p>
+    </div>
+  </div>
+
+  <div class="place-description mt-3">
+    <h3 class="text-center" style="color: #FE570F; font-weight: bold">Description</h3>
+    <p class="text-justify">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, recusandae magnam dolorem doloribus tenetur unde est, eaque dolore aliquam aliquid porro eum. At aliquid labore iste ipsam, quos quam, impedit.
+    </p>
+  </div>
+
+  <div class="place-reviews">
+    <p class="review-title text-center">Reviews</p>
+  </div>
+
+  <div class="place-photos">
+    <p class="review-title text-center">Photos</p>
+
+    <div class="row justify-content-center">
+      <% @place.place_photos.each do |p| %>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <%= cl_image_tag p.photo, width: 260, height: 187, crop: :fill, class: 'rounded' %>
+        </div>
+      <% end %>
+
+      <p class="text-justify">
+        Want to feature your creature? Upload a photo of your pet at <strong><%= @place.name %></strong> You can also share by using the hashtag #retrievr on Facebook, Twitter or Instagram.
+      </p>
+
+
+      <div>
+        <ul class="list-inline" style="font-size: 20px">
+          <li>
+            <i class="fas fa-arrow-circle-up" style="color: orange"></i>
+          </li>
+          <li style="color: orange; font-weight: bold">Upload picture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= link_to "Back to list", places_path, class: 'btn btn-warning' %>
