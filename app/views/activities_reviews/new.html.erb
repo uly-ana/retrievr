@@ -1,2 +1,6 @@
-<h1>ActivitiesReviews#new</h1>
-<p>Find me in app/views/activities_reviews/new.html.erb</p>
+<div class="form-actions">
+  <%= simple_form_for [@activity_review] do |f| %>
+    <%= f.input :content %>
+    <%= f.button :submit, "Add review" %>
+  <% end %>
+</div>
