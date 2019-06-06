@@ -1,10 +1,5 @@
 import "bootstrap";
 
-const downFilter = document.querySelector('.dropdown-filter');
-const dropdownContent = document.querySelector('.dropdown-content');
+import { dropdownFilter } from 'components/dropdown_filter';
 
-downFilter.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  dropdownContent.classList.toggle('dropdown-hide');
-});
+dropdownFilter();
