@@ -22,3 +22,34 @@
     border-radius: 16px;
   }
 }
+
+.dogginess {
+  filter: invert(67%) sepia(20%) saturate(4663%) hue-rotate(0deg) brightness(103%) contrast(106%);
+}
+
+.place-details-map {
+  height: 200px;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.place-actions {
+  // border: 1px solid rgba(0, 0, 0, .2);
+  margin-top: 32px;
+  padding: 12px 24px;
+  box-shadow:
+    inset 0px 11px 8px -10px #CCC,
+    inset 0px -11px 8px -10px #CCC;
+}
+
+.place-reviews, .place-photos {
+  .review-title {
+    padding: 6px 24px;
+    background-color: #FE570F;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  }
+}
