@@ -1,27 +1,25 @@
 <div class="filter-dropdown">
-  <div class="dropdown-content" id="dropdownFilter">
+  <div class="dropdown-content dropdown-hide" id="dropdownFilter">
     <div class="price-filter mb-2">
       <p id="category"><strong>Price</strong></p>
-      <% if params[:price] == 'DESC' %>
-        <%= link_to 'Price ASC', activities_path(price: 'ASC') %>
-      <% else %>
-        <%= link_to 'Price DESC', activities_path(price: 'DESC') %>
-      <% end %>
+      <div class="price-params">
+        <%= link_to 'Price DESC', activities_path(price: 'DESC'), remote: true %>
+      </div>
     </div>
 
     <div class="category-filter">
       <p id="category"><strong>Category</strong></p>
       <ul class="category">
         <li>
-          <%= link_to 'Pool', activities_path(category: 'Pool') %>
+          <%= link_to 'Pool', activities_path(category: 'Pool'), remote: true %>
         </li>
         <li>
-          <%= link_to 'Feast', activities_path(category: 'Feast') %>
+          <%= link_to 'Feast', activities_path(category: 'Feast'), remote: true %>
         </li>
+        <!-- <li></li>
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
+        <li></li> -->
       </ul>
     </div>
     <div class="reset-filter">

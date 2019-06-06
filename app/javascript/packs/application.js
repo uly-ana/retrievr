@@ -1,8 +1,5 @@
 import "bootstrap";
 
-const downFilter = document.querySelector('.dropdown-filter');
+import { dropdownFilter } from 'components/dropdown_filter';
 
-downFilter.addEventListener('click', (e) => {
-  e.preventDefault();
-
-});
+dropdownFilter();

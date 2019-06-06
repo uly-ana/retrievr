@@ -3,8 +3,24 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @activities = params[:price] ? Activity.order(price_cents: params[:price]) : Activity.all
-    @activities = params[:category] ? Activity.where(category: params[:category]) : Activity.all
+    @params = params
+
+    respond_to do |format|
+      format.html do
+        @activities = Activity.all
+        render :index
+      end
+
+      format.js do
+        if params[:price].present?
+          @activities = Activity.order(price_cents: params[:price])
+        elsif params[:category].present?
+          @activities = Activity.where(category: params[:category])
+        else
+          @activities = Activity.all
+        end
+      end
+    end
   end
 
   def show

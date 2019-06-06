@@ -1,0 +1,16 @@
+function filter(activities) {
+  const results = document.querySelector('.cards');
+  results.innerHTML = activities;
+}
+
+<% unless @params[:price].nil? || @params[:price].empty? %>
+  var priceParams = document.querySelector('.price-params');
+
+  <% if @params[:price] == 'DESC' %>
+    priceParams.innerHTML = '<%= link_to "Price ASC", activities_path(price: "ASC"), remote: true %>';
+  <% elsif @params[:price] == 'ASC' %>
+    priceParams.innerHTML = '<%= link_to "Price DESC", activities_path(price: "DESC"), remote: true %>';
+  <% end %>
+<% end %>
+
+filter('<%= j render "activities/cards", activities: @activities %>')
