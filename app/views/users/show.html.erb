@@ -43,7 +43,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="user-restaurants-favourites">
     <h4 class="text-center">Favorites</h4>
       <% if @user.favorites.present? %>
@@ -53,5 +52,11 @@
       <% else %>
         <p class="text-center">No favorite places or events added yet</p>
       <% end %>
+  </div>
+
+  <div class="acc-settings">
+    <%= link_to "Account credentials", edit_user_registration_path, class: 'user-btn' %>
+
+    <%= link_to "Delete account", user_registration_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'user-btn' %>
   </div>
 </div>
