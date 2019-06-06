@@ -39,6 +39,7 @@
          <p><strong><%= dog.name %></strong></p>
         <%= dog.my_story %>
         <br>
+         <%= link_to "Remove", destroy_dogs_path(dog), method: :delete, data: { confirm: 'Are you sure?' } %>
         <br>
       <% end %>
     </div>

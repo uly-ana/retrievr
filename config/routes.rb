@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'profile/:id', to: 'users#show', as: :profile
   get 'profile/:id/dogs', to: 'dogs#index'
-  get 'profiles/:id/dogs/new', to: 'dogs#new', as: :new_user_dog
-  post 'profiles/:id/dogs', to: 'dogs#create', as: :user_dogs
+  get 'profile/:id/dogs/new', to: 'dogs#new', as: :new_user_dog
+  post 'profile/:id/dogs', to: 'dogs#create', as: :user_dogs
+  delete 'profile/dogs/:id', to: 'dogs#destroy', as: :destroy_dogs
   post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
 
   # resources :users, only: [:show, :index] do
