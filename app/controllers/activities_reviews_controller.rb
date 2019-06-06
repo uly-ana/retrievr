@@ -11,8 +11,10 @@ class ActivitiesReviewsController < ApplicationController
     @activity_review = ActivityReview.new(activity_review_params)
     @activity_review.user = @user
     if @activity_review.save
+      flash[:notice] = 'Review was successfully created.'
       redirect_to activity_review_path(@activity_review)
     else
+      flash[:notice] = "Error creating review: #{@activity_review.errors}"
       render :new
     end
   end
