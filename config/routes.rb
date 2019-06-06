@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
+  get 'about', to: 'pages#about'
+
   get 'profile/:id', to: 'users#show', as: :profile
   get 'profile/:id/dogs', to: 'dogs#index'
   post 'profile/:id/dogs', to: 'dogs#create',as: :user_dogs

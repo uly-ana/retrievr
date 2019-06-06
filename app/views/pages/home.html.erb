@@ -9,12 +9,6 @@
 <br>
 
 <div class="container">
-
-  <!-- <div class="about-us">
-    <h2>About Us</h2>
-    <p>we are retrievr</p>
-  </div> -->
-
   <div class="upcoming-events">
     <h2>Upcoming events</h2>
     <div class="upcoming-events-card d-flex flex-direction-column justify-content-center">
@@ -23,7 +17,7 @@
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
             <li class="list-group item">
-              <p><%= activity.address %></p>
+              <p><%= activity.name %></p>
             </li>
           <% end %>
         <% end %>
@@ -43,7 +37,9 @@
             </li>
           <% end %>
         <% end %>
+      </ul>
     </div>
-
   </div>
 </div>
+
+<%= render 'shared/footer' %>
