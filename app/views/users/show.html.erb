@@ -45,13 +45,13 @@
   </div>
 
   <div class="user-restaurants-favourites">
-    <h4 class="text-center">Favorite places</h4>
+    <h4 class="text-center">Favorites</h4>
       <% if @user.favorites.present? %>
         <% @user.favorites.each do |favourite| %>
            <p><strong><%= favorite.activity.name %></strong></p>
         <% end %>
       <% else %>
-        <p class="text-center">No favorite places added yet</p>
+        <p class="text-center">No favorite places or events added yet</p>
       <% end %>
   </div>
 </div>
