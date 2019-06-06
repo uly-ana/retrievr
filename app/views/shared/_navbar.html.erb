@@ -32,11 +32,11 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item non-login">
           <%= link_to "LOGIN", new_user_session_path, class: "secondary-links login-link" %>
         </li>
-        <li class="nav-item"><br></li>
-        <li class="nav-item">
+        <li class="nav-item non-login"><br></li>
+        <li class="nav-item non-login">
           <%= link_to "SIGN UP", new_user_registration_path, class: 'btn-su'  %>
         </li>
       <% end %>
