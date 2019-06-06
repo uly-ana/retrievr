@@ -17,10 +17,10 @@ class DogPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.present?
+    record.user == user
   end
 
   def update?
-    user.present?
+    record.user == user
   end
 end
