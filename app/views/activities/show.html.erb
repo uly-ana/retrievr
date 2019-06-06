@@ -1,12 +1,88 @@
-<h1><%= @activity.name %></h1>
-<p>Category: <%= @activity.category %></p>
-<p>Description: <%= @activity.description %></p>
-<p>Creator: <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
-<p>Price: <%= humanized_money_with_symbol(@activity.price) %></p>
-<p>Place: <%= @activity.place.name %></p>
-<% @activity.activity_photos.each do |p| %>
-  <%= cl_image_tag p.photo, width: 200, height: 200 %>
-<% end %>
+<div class="container">
+  <div class="activity-grid">
+    <div class="activity-about">
+      <div class="about-content d-flex justify-content-around align-items-center">
+        <%= cl_image_tag @activity.activity_photos.first.photo, crop: :fill, width: 500, height: 300 %>
+        <h1 style="color: orange"><%= @activity.name %></h1>
+      </div>
+    </div>
 
-<%= render 'formphotos' %>
-<%= link_to "Back to list", activities_path, class: 'btn btn-warning' %>
+    <div class="activity-description">
+      <h2 style="color: orange">About</h2>
+      <p><%= @activity.description %></p>
+    </div>
+
+    <div class="activity-details">
+      <p><strong>Date</strong> <%= @activity.date %></p>
+      <p><strong>Price</strong> <%= humanized_money_with_symbol(@activity.price) %></p>
+      <p><strong>Location</strong> <%= @activity.place.name %></p>
+      <p><strong>Category</strong> <%= @activity.category %></p>
+      <p><strong>Creator</strong> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
+    </div>
+
+    <div class="activity-photos">
+      <div class="act-photos">
+        <% @activity.activity_photos.each do |p| %>
+          <%= cl_image_tag p.photo, width: 300, height: 200, crop: :fill, g: :face, class: 'activity-photo' %>
+        <% end %>
+      </div>
+
+      <div class="activity-photo-upload text-center">
+        <ul class="list-inline" style="font-size: 20px">
+          <li>
+            <i class="fas fa-arrow-circle-up" style="color: orange"></i>
+          </li>
+          <li style="color: orange; font-weight: bold">Upload picture</li>
+        </ul>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= render 'activity_photos/formphotos' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="activity-reviews">
+      <h2 style="color: orange">Reviews</h2>
+      <% @activity.activity_reviews.each do |r| %>
+        <ul class="list-group">
+          <li class="list-group-item review-content">
+            <div class="review-image text-center">
+              <%= cl_image_tag r.user.avatar, crop: :fill, g: :face, class: 'avatar-huge' %>
+              <h6 style='margin-top: 8px; margin-bottom: 0'>@<%= r.user.username %></h6>
+              <p style="color: gray; margin-bottom: 0;"><%= r.created_at %></p>
+            </div>
+
+            <div class="review-ratings">
+              <div class="rating-bones">
+                <% r.rating.times do %>
+                  <i class="fas fa-bone" style="color: orange; font-size: 24px; transform: rotate(-45deg);"></i>
+                <% end %>
+              </div>
+
+              <% if r.content.present? %>
+                <div class="review-text">
+                  <p><%= r.content %></p>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+
+      <% if @activity.owner != current_user %>
+        <div class="review-form">
+          <p id="new_review" class="text-center" style="color: orange; font-size: 20px; cursor: pointer">
+            <i class="fas fa-pen">&nbsp;</i>Submit a review
+          </p>
+
+          <div class="activity-review-form hide-form">
+            <%= render 'activity_reviews/form' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%#= link_to "Back to list", activities_path, class: 'btn btn-warning' %>
+</div>

@@ -1,0 +1,17 @@
+.list-group {
+  .review-content {
+    display: grid;
+    grid-template-columns: 200px auto;
+  }
+}
+
+.review-ratings {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.list-inline li {
+  display: inline;
+}

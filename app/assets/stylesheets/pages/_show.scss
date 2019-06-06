@@ -1,0 +1,24 @@
+// Activities#show
+.activity-grid {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+}
+
+.activity-about, .activity-description, .activity-details {
+  border-bottom: 2px solid rgba(0, 0, 0, .2);
+}
+
+.about-content {
+  margin-bottom: 16px;
+}
+
+.act-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  img {
+    border-radius: 16px;
+  }
+}

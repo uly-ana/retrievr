@@ -1,0 +1,5 @@
+<%= form_for([@activity, ActivityPhoto.new]) do |f| %>
+  <%= f.hidden_field :activity_id %>
+      <%= f.file_field :photo %>
+      <%= f.submit %>
+<% end %>

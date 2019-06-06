@@ -10,14 +10,11 @@ Rails.application.routes.draw do
 
   delete 'profile/dogs/:id', to: 'dogs#destroy', as: :destroy_dogs
   post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
-
-  # resources :users, only: [:show, :index] do
-  #   resources :dogs, only: [:new, :create]
-  # end
+  # post 'activity_review/', to: 'activity_reviews#create', as: :new_activity_review
 
 
   resources :activities do
-    resources :activity_review, only: [:create]
+    resources :activity_reviews, only: [:create]
     resources :activity_photos, only: [:create]
   end
 

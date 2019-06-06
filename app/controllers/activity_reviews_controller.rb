@@ -1,26 +1,24 @@
-class ActivitiesReviewsController < ApplicationController
-  def index
-    @activity_reviews = ActivityReview.all
-  end
+class ActivityReviewsController < ApplicationController
+  before_action :user, only: [:create]
 
-  def show
-    @activity_review = ActivityReview.find(params[:id])
+  def new
+    @activity_review = ActivityReview.new
   end
 
   def create
     @activity_review = ActivityReview.new(activity_review_params)
+    @activity = Activity.find(params[:activity_id])
+    @activity_review.activity = @activity
     @activity_review.user = @user
+    authorize @activity_review
+
     if @activity_review.save
       flash[:notice] = 'Review was successfully created.'
-      redirect_to activity_review_path(@activity_review)
+      redirect_to activity_path(@activity)
     else
       flash[:notice] = "Error creating review: #{@activity_review.errors}"
       render :new
     end
-  end
-
-  def new
-    @activity_review = ActivityReview.new
   end
 
   def destroy
@@ -35,10 +33,10 @@ class ActivitiesReviewsController < ApplicationController
   private
 
   def user
-    @user = current.usser
+    @user = current_user
   end
 
   def activity_review_params
-    params.require(:activity_review).permit(:name, :description)
+    params.require(:activity_review).permit(:rating, :content)
   end
 end
