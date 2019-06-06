@@ -1,2 +1,51 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="profile">
+  <div class="banner">
+    <div class="user-name text-center">
+      <% if @user.username.present? %>
+        <h1><%= @user.username %></h1>
+      <% else %>
+        <h1>Username</h1>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="user-content">
+    <div class="profile-pic text-center">
+      <% if @user.avatar.present? %>
+        <%= cl_image_tag @user.avatar, alt: @user.username, width: 100, height: 100, crop: :fill, g: :face, radius: :max %>
+      <% else %>
+        <%= image_tag "http://diazworld.com/images/avatar-placeholder.png", alt: "avatar-placeholder", width: 100, height: 100 %>
+      <% end %>
+    </div>
+    <div class="info text-center">
+      <h4>Contact</h4>
+      <h4>About me</h4>
+      <% if @user.bio.present? %>
+        <p><%= @user.bio %></p>
+      <% else %>
+        <p>This user has no bio yet</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-dogs">
+    <h4 class="text-center">Meet my best friend
+      <%= link_to "+", new_user_dog_path %></h4>
+    <div class="all-user-dogs text-center">
+      <% @user.dogs.each do |dog| %>
+        <%= dog.name %>
+        <br>
+        <%= dog.my_story %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-restaurants-favourites">
+    <h4 class="text-center">Favourite places</h4>
+
+  </div>
+</div>
