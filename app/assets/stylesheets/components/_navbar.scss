@@ -44,6 +44,12 @@
   }
 }
 
+.non-login:nth-of-type(1) {
+  a:hover {
+    color: #ce804a;
+  }
+}
+
 .non-login {
   &:hover {
     border-bottom: none !important;
