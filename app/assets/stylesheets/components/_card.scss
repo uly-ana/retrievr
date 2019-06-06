@@ -48,12 +48,18 @@
   .cards {
     grid-template-columns: 1fr;
   }
+  .card-content {
+    visibility: visible;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+  .card-content {
+    visibility: visible;
   }
 }
 
@@ -62,12 +68,18 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+  .card-content {
+    visibility: visible;
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card-content {
+    visibility: hidden;
   }
 }
 
