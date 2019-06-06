@@ -24,6 +24,33 @@ class DogsController < ApplicationController
     end
   end
 
+  def destroy
+    @dog = Dog.find(params[:id])
+    authorize @dog
+    if @dog.destroy
+      redirect_to profile_path(current_user)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @dog = Dog.find(params[:id])
+    @user = current_user
+    authorize @dog
+  end
+
+  def update
+    @dog = Dog.find(params[:id])
+    @dog.update(dog_params)
+    authorize @dog
+    if @dog.save
+      redirect_to profile_path(current_user)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def dog_params

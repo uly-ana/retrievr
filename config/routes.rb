@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: 'pages#home'
   get 'profile/:id', to: 'users#show', as: :profile
   get 'profile/:id/dogs', to: 'dogs#index'
-  get 'profiles/:id/dogs/new', to: 'dogs#new', as: :new_user_dog
-  post 'profiles/:id/dogs', to: 'dogs#create', as: :user_dogs
+  post 'profile/:id/dogs', to: 'dogs#create',as: :user_dogs
+  get 'profile/:id/dogs/new', to: 'dogs#new', as: :new_user_dog
+  get 'profile/dogs/:id/edit', to: 'dogs#edit', as: :edit_user_dog
+  patch 'profile/dogs/:id', to: 'dogs#update', as: :update_user_dog
+
+  delete 'profile/dogs/:id', to: 'dogs#destroy', as: :destroy_dogs
   post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
   # post 'activity_review/', to: 'activity_reviews#create', as: :new_activity_review
+
 
   resources :activities do
     resources :activity_reviews, only: [:create]
