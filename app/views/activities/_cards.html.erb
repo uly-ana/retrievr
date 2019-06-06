@@ -1,6 +1,6 @@
 <% @activities.each do |activity| %>
   <%= link_to activity_path(activity), class: 'activity-link' do %>
-    <div class="card" data-activity-id="<%= activity.id %>" style="background-image: url('<%= cl_image_path activity.activity_photos.first.photo, crop: :fill %>')">
+    <div class="card" data-activity-id="<%= activity.id %>" style="background-image: url('<%= cl_image_path activity.activity_photos.first.photo, crop: :fill %>')" >
       <div class="card-content">
         <div class="card-name">
           <h3><%= activity.name %></h3>
