@@ -44,8 +44,11 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @dog.update(dog_params)
     authorize @dog
-    @dog.save
-    redirect_to profile_path(current_user)
+    if @dog.save
+      redirect_to profile_path(current_user)
+    else
+      render :edit
+    end
   end
 
   private
