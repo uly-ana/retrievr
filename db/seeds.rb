@@ -62,7 +62,7 @@ puts '------------'
 
 puts 'Creating activities'
 10.times do
-  Activity.create!(
+  act = Activity.create!(
     address: Faker::Address.street_name,
     description: Faker::Lorem.sentence(20),
     date: Time.at(rand * Time.now.to_i),
@@ -71,6 +71,10 @@ puts 'Creating activities'
     limit: rand(5..20),
     owner_id: rand(1..10),
     place_id: rand(1..10)
+    )
+  ActivityPhoto.create!(
+    remote_photo_url: 'https://ichef.bbci.co.uk/news/660/cpsprodpb/16BB/production/_106591850_untitleddesign-3.jpg',
+    activity: act
     )
 end
 
