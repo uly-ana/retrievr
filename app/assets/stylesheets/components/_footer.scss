@@ -1,3 +1,29 @@
 section ul {
   list-style: none;
 }
+
+.footer {
+  background-color : #FFA605;
+  color: white;
+  margin-bottom: .8em;
+  position: relative;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#footer-social p {
+  color: rgba(255,255,255,.7);
+  margin-bottom: 30px;
+}
+
+#footer-social h3 {
+  color: white;
+}
+
+
+#footer-sub {
+  padding: 20px 0px;
+}
