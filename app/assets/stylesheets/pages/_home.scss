@@ -1,2 +1,28 @@
 // Specific CSS for your home-page
 // Landing page
+.banner {
+  height: 100vh;
+  background-image: linear-gradient(rgba(250, 250, 250, 0.3), rgba(250, 250, 250, 0.3)), url('https://res.cloudinary.com/dgm2k7aer/image/upload/v1559884093/patrick-hendry-221863-unsplash_wto3ry.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  h1 {
+    text-align: center;
+    padding-top: 30vh;
+    color: #454545;
+    font-size: 72px;
+    font-family: 'Roboto';
+  }
+  p {
+    color: #454545;
+    text-align: center;
+  }
+}
+
+.searchbar {
+  background-color: transparent;
+  border: 1px solid #454545;
+  border-radius: 4px;
+  text-align: center;
+  color: #454545;
+}
