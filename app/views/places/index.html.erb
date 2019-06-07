@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Dog friendly places worldwide</h1>
+  <h1 class="text-center" style="color: orange">Dog friendly places worldwide</h1>
 
   <p class="text-center" style="line-height: 2em;">
-    Don't leave your bestfriend in the hotel room when it's time for dinner. A dog's gotta eat too! And no matter where you're headed, we can point you towards a great sidewalk cafe, brew pub, coffee shop, or other eatery that will welcome <i>Your best friend</i> to join you at an outdoor table. <br><strong>Bone appetit!</strong>
+    Don't leave your bestfriend in the hotel room when it's time for dinner. A dog's gotta eat too! And no matter where you're headed, we can point you towards a great sidewalk cafe, brew pub, coffee shop, or other eatery that will welcome <i>Your best friend</i> to join you at an outdoor table. <br><strong style="color: orange">Bone appetit!</strong>
   </p>
 
   <div class="main-container">
@@ -10,7 +10,11 @@
       <% @places.each do |place| %>
         <%= link_to place_path(place) do %>
           <div class="places">
-            <%= cl_image_tag place.place_photos.first.photo, width: 271, height: 165, crop: :fill %>
+            <% if place.place_photos.present? %>
+              <%= cl_image_tag place.place_photos.first.photo, width: 271, height: 165, crop: :fill %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=660&q=80", alt: "Basic-dog", width: 271, height: 165 %>
+            <% end %>
             <ul class="place-rating">
               <% rand(1..5).times do %>
                 <li>
@@ -42,6 +46,10 @@
 
       <div
         id="map"
+        style="height: 495px;
+        width: 100%;
+        "
+
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>

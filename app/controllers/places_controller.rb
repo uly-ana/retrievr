@@ -4,18 +4,18 @@ class PlacesController < ApplicationController
   def index
     @places = policy_scope(Place)
 
+    if params[:search].present?
+      @places = Place.near(params[:search])
+    else
+      @places = Place.all
+    end
+
     @markers = @places.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude,
         infoWindow: render_to_string(partial: 'infowindow', locals: { place: place })
       }
-    end
-
-    if params[:search].present?
-      @places = Place.near(params[:search])
-    else
-      @places = Place.all
     end
   end
 
