@@ -1,25 +1,74 @@
-<h1>Places to Go</h1>
+<div class="container">
+  <h1>Dog friendly places worldwide</h1>
+
+  <p class="text-center" style="line-height: 2em;">
+    Don't leave your bestfriend in the hotel room when it's time for dinner. A dog's gotta eat too! And no matter where you're headed, we can point you towards a great sidewalk cafe, brew pub, coffee shop, or other eatery that will welcome <i>Your best friend</i> to join you at an outdoor table. <br><strong>Bone appetit!</strong>
+  </p>
+
+  <div class="main-container">
+    <div class="place-container">
+      <% @places.each do |place| %>
+        <%= link_to place_path(place) do %>
+          <div class="places">
+            <%= cl_image_tag place.place_photos.first.photo, width: 271, height: 165, crop: :fill %>
+            <ul class="place-rating">
+              <% rand(1..5).times do %>
+                <li>
+                  <%= image_tag "bone", alt: "rating", width: 24, height: 24 %>
+                </li>
+              <% end %>
+            </ul>
+
+            <div class="place-detail">
+              <p style="margin: 0; color: #127E8C"><%= place.name %></p>
+              <p style="margin: 0; color: #127E8C"><%= place.location %></p>
+            </div>
+
+            <div class="place-save">
+              <%= image_tag "save.svg", alt: "save", width: 36, height: 36, class: 'save' %>
+              <p style="margin: 0; color: #ff0000">Save</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <div class="searchbar">
+        <%= form_tag('/places', method: :get, class: 'search-form') do %>
+          <%= text_field_tag :search, nil, placeholder: "Enter destination", class: "search-form-text" %>
+        <% end %>
+      </div>
+
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to new_place_path do %>
   <i class="fas fa-plus-circle">Add a new place</i>
 <% end %>
 
-<% @places.each do |place| %>
-  <ul class="list-group">
+<%# @places.each do |place| %>
+  <!-- <ul class="list-group">
     <li class="list-group-item">
-      <%= link_to place.name, place_path(place) %>
+      <%#= link_to place.name, place_path(place) %>
 
-      <% if policy(place).update? %>
-        <%= link_to edit_place_path(place) do %>
+      <%# if policy(place).update? %>
+        <%#= link_to edit_place_path(place) do %>
           <i class="fas fa-edit"></i>
-        <% end %>
-      <% end %>
+        <%# end %>
+      <%# end %>
 
-      <% if policy(place).destroy? %>
-        <%= link_to place_path(place), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <%# if policy(place).destroy? %>
+        <%#= link_to place_path(place), method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="fas fa-trash"></i>
-        <% end %>
-      <% end %>
+        <%# end %>
+      <%# end %>
     </li>
-  </ul>
-<% end %>
+  </ul> -->
+<%# end %>
