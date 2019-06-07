@@ -1,0 +1,25 @@
+#map {
+  height: 495px;
+  width: 450px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, .2);
+  position: sticky;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+  padding: 24px;
+}
+
+.mapboxgl-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
