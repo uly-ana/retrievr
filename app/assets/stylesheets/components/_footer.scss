@@ -4,13 +4,14 @@ section ul {
 
 .footer {
   background-color : #FFA605;
-  font-color: white;
+  color: white;
   margin-bottom: .8em;
   position: relative;
   max-width: 100%;
   text-align: center;
   margin-top: 80px;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 // margin-bottom: .8em;
@@ -21,7 +22,15 @@ section ul {
 }
 
 #footer-social h3{
+  color: white;
+}
 
 
+#footer-sub{
+  padding: 20px 0px;
 
 }
+
+// .h1 fancy {
+//   color: white;
+// }
