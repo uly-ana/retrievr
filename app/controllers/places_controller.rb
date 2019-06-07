@@ -2,7 +2,21 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @places = policy_scope(Place).order(id: :asc)
+    @places = policy_scope(Place)
+
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: 'infowindow', locals: { place: place })
+      }
+    end
+
+    if params[:search].present?
+      @places = Place.near(params[:search])
+    else
+      @places = Place.all
+    end
   end
 
   def show
