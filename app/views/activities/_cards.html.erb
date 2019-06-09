@@ -5,11 +5,20 @@
         <div class="card-name">
           <h3><%= activity.name %></h3>
         </div>
+
         <div class="card-description">
           <p>
             By: <%= activity.owner.first_name %> <%= activity.owner.last_name %>
           </p>
         </div>
+
+        <div class="card-favorite">
+          <%# if activity.favorites %>
+            <%= button_to activity_favorites_path(activity) do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+        </div>
+
         <div class="card-action">
           <i class="far fa-arrow-alt-circle-right"></i>
         </div>

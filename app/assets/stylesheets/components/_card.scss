@@ -34,6 +34,23 @@
     bottom: 8px;
     font-size: 32px;
   }
+  .card-favorite {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 24px;
+    button {
+      color: white;
+      background: none;
+      border: none;
+      &:hover {
+        color: rgba(210, 210, 210, 1);
+      }
+      &:active {
+        color: $red;
+      }
+    }
+  }
 }
 
 .card-content {
