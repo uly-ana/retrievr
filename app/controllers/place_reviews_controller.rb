@@ -7,7 +7,6 @@ class PlaceReviewsController < ApplicationController
     @place_review.place = @place
     @place_review.user = @user
     authorize @place_review
-    raise
 
     if @place_review.save
       flash[:notice] = 'Review was successfully created'

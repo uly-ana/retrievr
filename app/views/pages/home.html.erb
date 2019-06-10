@@ -10,7 +10,7 @@
   <div class="container">
     <div class="upcoming-events">
       <h2>Upcoming events</h2>
-      
+
       <% @activities = Activity.order(:date).first(2) %>
       <div class="d-flex justify-content-center align-items-center flex-wrap">
         <% @activities.each do |activity| %>
@@ -47,7 +47,11 @@
                 </div>
                 <div class="place-card-info" style="padding-top: 10px;">
                   <h3><%= place.category %></h3>
-                  <p><%= place.place_reviews.rating %></p>
+                  <div class="rating">
+                    <% place.place_reviews.each do |review| %>
+                      <p><%= review.rating %></p>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             <% end %>
