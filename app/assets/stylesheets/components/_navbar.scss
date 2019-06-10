@@ -1,15 +1,15 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
 
 .main-links {
   li {
@@ -66,4 +66,10 @@
   .login-link {
     margin-right: 3rem;
   }
+}
+
+.navbar.bg-light {
+    background-color: white !important;
+    justify-content: space-between;
+    border: 1px solid rgb(235,235,235);
 }

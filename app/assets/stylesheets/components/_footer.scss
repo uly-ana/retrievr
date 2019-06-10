@@ -1,6 +1,26 @@
-section ul {
+
+section ul li {
+  text-align: left;
+  margin: 0 1.5%;
+  width: 63%;
+  float: left;
   list-style: none;
 }
+
+a {
+
+  color: white;
+  // display: block;
+  // text-decoration: none;
+
+}
+
+.fancy {
+  text-align: left;
+  text-decoration: underline;
+
+}
+
 
 .footer {
   background-color : #FFA605;
@@ -26,3 +46,6 @@ section ul {
 #footer-sub {
   padding: 20px 0px;
 }
+
+
+
