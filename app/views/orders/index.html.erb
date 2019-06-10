@@ -3,6 +3,8 @@
  -->
 <div class="container index-list">
   <% @orders.each do |f| %>
-    <%= f.amount_cents %>
+    <div class="order">
+      <%= f.amount_cents %>
+    </div>
   <% end %>
  </div>

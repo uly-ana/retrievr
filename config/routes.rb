@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:index, :create, :destroy] do
-    resources :payments, only: [:create]
+    resources :payments, only: [:new, :create]
   end
 
   resources :places
