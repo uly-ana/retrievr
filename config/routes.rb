@@ -12,19 +12,23 @@ Rails.application.routes.draw do
   patch 'profile/dogs/:id', to: 'dogs#update', as: :update_user_dog
 
   delete 'profile/dogs/:id', to: 'dogs#destroy', as: :destroy_dogs
-  post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
+  # post 'profile/:id/favorites', to: 'favorites#create', as: :new_favorite
   # post 'activity_review/', to: 'activity_reviews#create', as: :new_activity_review
 
 
   resources :activities do
     resources :activity_reviews, only: [:create]
     resources :activity_photos, only: [:create]
+    resources :favorites, only: [:destroy, :create]
   end
+
 
   resources :orders, only: [:index, :show, :create, :new, :destroy] do
     resources :payments, only: [:new, :create]
   end
 
-  resources :places
+  resources :places do
+    resources :favorites, only: [:create, :destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
