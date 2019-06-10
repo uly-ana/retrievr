@@ -12,12 +12,12 @@
       <h2>Upcoming events</h2>
 
       <% @activities = Activity.order(:date).first(2) %>
-      <div class="d-flex" style="justify-content: space-around; align-items: center; flex-wrap: wrap;">
+      <div class="d-flex justify-content-center align-items-center flex-wrap">
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
-            <div class="each-event d-flex" style="justify-content: center; align-items: center;">
+            <div class="each-event d-flex justify-content-center align-items-center">
               <p><%= activity.address %></p>
-              <%#= cl_image_tag @activity_photos.photo, crop: :fill %>
+              <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
             </div>
           <% end %>
         <% end %>
@@ -43,17 +43,16 @@
             <%= link_to place_path(place) do %>
               <div class="place-card d-flex" style="justify-content: left; align-items: center; flex-direction: column;">
                 <div class="place-card-img" style="width: 200px; height: 200px; background-color: grey; border-top-left-radius: 4px; border-top-right-radius: 4px;">
-                  <%#= cl_image_tag @place_photos.photo, crop: :fill %>
+                  <%= cl_image_tag place.place_photos.sample.photo, crop: :fill %>
                 </div>
                 <div class="place-card-info" style="padding-top: 10px;">
                   <h3><%= place.category %></h3>
-                  <!-- <p><%#= place_reviews.rating %></p> -->
+                  <p><%= place.place_reviews.rating %></p>
                 </div>
               </div>
             <% end %>
           </div>
         <% end %>
-
     </div>
   </div>
 </div>
