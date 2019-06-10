@@ -10,7 +10,9 @@ class FavoritesController < ApplicationController
     @favorite.activity = @activity
     @favorite.place = @place
     @favorite.user = @user
+
     authorize @favorite
+
     @favorite.save ? flash[:notice] = 'Added to favorites' : flash[:error] = 'Error!'
 
     respond_to do |format|
@@ -25,6 +27,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     @activity = Activity.find(params[:activity_id])
+    @place = Place.find(params[:place_id])
     @favorite = Favorite.find(params[:id])
     authorize @favorite
     @favorite.destroy

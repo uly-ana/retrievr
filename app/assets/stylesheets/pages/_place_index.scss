@@ -11,8 +11,6 @@
   a {
     &:hover {
       text-decoration: none;
-      transform: scale(1.1);
-      transition: all 1s linear;
     }
   }
 }
@@ -36,6 +34,11 @@
       filter: invert(22%) sepia(66%) saturate(6484%) hue-rotate(353deg) brightness(92%) contrast(128%);
     }
   }
+}
+
+.place-fave {
+  border: none;
+  background: none;
 }
 
 @media only screen and (max-width: 992px) {

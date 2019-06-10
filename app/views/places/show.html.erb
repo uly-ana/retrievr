@@ -47,6 +47,35 @@
 
   <div class="place-reviews">
     <p class="review-title text-center">Reviews</p>
+    <% if @place.user != current_user && PlaceReview.find_by(user: current_user).nil? %>
+      <%= render 'place_reviews/form' %>
+    <% else %>
+      <% @place.place_reviews.each do |r| %>
+        <ul class="list-group">
+          <li class="list-group-item review-content">
+            <div class="review-image text-center">
+              <%= cl_image_tag r.user.avatar, crop: :fill, g: :face, class: 'avatar-huge' %>
+              <h6 style='margin-top: 8px; margin-bottom: 0'>@<%= r.user.username %></h6>
+              <p style="color: gray; margin-bottom: 0;"><%= r.created_at %></p>
+            </div>
+
+            <div class="review-ratings">
+              <div class="rating-bones">
+                <% r.rating.times do %>
+                  <i class="fas fa-bone" style="color: orange; font-size: 24px; transform: rotate(-45deg);"></i>
+                <% end %>
+              </div>
+
+              <% if r.content.present? %>
+                <div class="review-text">
+                  <p><%= r.content %></p>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="place-photos">
@@ -62,7 +91,6 @@
       <p class="text-justify">
         Want to feature your creature? Upload a photo of your pet at <strong><%= @place.name %></strong> You can also share by using the hashtag #retrievr on Facebook, Twitter or Instagram.
       </p>
-
 
       <div>
         <ul class="list-inline" style="font-size: 20px">
