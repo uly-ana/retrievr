@@ -13,10 +13,11 @@
         </div>
 
         <div class="card-favorite">
-          <%# if activity.favorites %>
-            <%= button_to activity_favorites_path(activity) do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
+          <% if Favorite.find_by(activity_id: activity.id, user_id: current_user.id) %>
+            <%= render 'favorites/delete', activity: activity %>
+          <% else %>
+            <%= render 'favorites/create', activity: activity %>
+          <% end %>
         </div>
 
         <div class="card-action">

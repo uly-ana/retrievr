@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :activities do
     resources :activity_reviews, only: [:create]
     resources :activity_photos, only: [:create]
-    resources :favorites, only: [:create]
+    resources :favorites, only: [:destroy, :create]
   end
 
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :places do
-    resources :favorites, only: [:create]
+    resources :favorites, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

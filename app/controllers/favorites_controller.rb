@@ -11,14 +11,32 @@ class FavoritesController < ApplicationController
     @favorite.place = @place
     @favorite.user = @user
     authorize @favorite
-
     @favorite.save ? flash[:notice] = 'Added to favorites' : flash[:error] = 'Error!'
+
+    respond_to do |format|
+      format.html
+
+      format.js do
+        render :create
+      end
+    end
+
   end
 
   def destroy
+    @activity = Activity.find(params[:activity_id])
     @favorite = Favorite.find(params[:id])
+    authorize @favorite
     @favorite.destroy
-    redirect_to favorites_path
+
+    respond_to do |format|
+      format.html
+
+      format.js do
+        render :delete
+      end
+    end
+
   end
 
   # private
