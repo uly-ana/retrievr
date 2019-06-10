@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     resources :activity_photos, only: [:create]
   end
 
-  resources :orders, only: [:index, :show, :create, :new, :destroy] do
-    resources :payments, only: [:new, :create]
+  resources :orders, only: [:index, :create, :destroy] do
+    resources :payments, only: [:create]
   end
 
   resources :places
