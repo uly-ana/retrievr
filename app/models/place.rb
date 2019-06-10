@@ -7,4 +7,8 @@ class Place < ApplicationRecord
   validates :user_id, presence: true
   validates :category, presence: true
   validates :dogginess_scale, presence: true, numericality: true, inclusion: { in: 1..5 }
+
+  def avg_rating
+
+  end
 end

@@ -6,44 +6,54 @@
   </div>
 </div>
 
-<br>
+<div class="event-container">
+  <div class="container">
+    <div class="upcoming-events">
+      <h2>Upcoming events</h2>
 
-<div class="container">
-
-  <!-- <div class="about-us">
-    <h2>About Us</h2>
-    <p>we are retrievr</p>
-  </div> -->
-
-  <div class="upcoming-events">
-    <h2>Upcoming events</h2>
-    <div class="upcoming-events-card d-flex flex-direction-column justify-content-center">
       <% @activities = Activity.order(:date).first(2) %>
-      <ul class="list-group">
+      <div class="d-flex" style="justify-content: space-around; align-items: center; flex-wrap: wrap;">
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
-            <li class="list-group item">
+            <div class="each-event d-flex" style="justify-content: center; align-items: center;">
               <p><%= activity.address %></p>
-            </li>
+              <%#= cl_image_tag @activity_photos.photo, crop: :fill %>
+            </div>
           <% end %>
         <% end %>
-      </ul>
+
+      </div>
+
+      <div class="d-flex" style="justify-content: center;">
+        <%= link_to 'All events', activities_path, class: "upcoming-events-btn" %>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="recommended-places">
-    <h2>Recommended places</h2>
-    <div class="recommended-places d-flex justify-content-center">
-     <% @places = Place.first(2) %>
-      <ul class="list-group">
+<div class="places-container">
+  <div class="container">
+    <div class="recommended-places">
+      <h2>Recommended places</h2>
+
+      <% @places = Place.first(4) %>
+      <div class="d-flex" style="justify-content: space-around; align-content: center; flex-wrap: wrap;">
         <% @places.each do |place| %>
-          <%= link_to place_path(place) do %>
-            <li class="list-group item">
-              <p><%= place.name %></p>
-            </li>
-          <% end %>
+          <div style="margin-bottom: 30px;">
+            <%= link_to place_path(place) do %>
+              <div class="place-card d-flex" style="justify-content: left; align-items: center; flex-direction: column;">
+                <div class="place-card-img" style="width: 200px; height: 200px; background-color: grey; border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                  <%#= cl_image_tag @place_photos.photo, crop: :fill %>
+                </div>
+                <div class="place-card-info" style="padding-top: 10px;">
+                  <h3><%= place.category %></h3>
+                  <!-- <p><%#= place_reviews.rating %></p> -->
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-    </div>
 
+    </div>
   </div>
 </div>
