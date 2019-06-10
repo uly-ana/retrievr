@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_062801) do
+ActiveRecord::Schema.define(version: 2019_06_10_021125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_06_07_062801) do
     t.integer "limit"
     t.bigint "owner_id"
     t.string "name"
+    t.string "sku"
     t.index ["owner_id"], name: "index_activities_on_owner_id"
     t.index ["place_id"], name: "index_activities_on_place_id"
   end
@@ -89,6 +90,8 @@ ActiveRecord::Schema.define(version: 2019_06_07_062801) do
     t.bigint "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activity_sku"
+    t.jsonb "payment"
     t.index ["activity_id"], name: "index_orders_on_activity_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

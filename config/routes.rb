@@ -22,8 +22,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:destroy, :create]
   end
 
-
-  resources :orders, only: [:index, :show, :create, :new, :destroy] do
+  resources :orders, only: [:index, :create, :destroy] do
     resources :payments, only: [:new, :create]
   end
 

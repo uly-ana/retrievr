@@ -29,7 +29,6 @@
 
 .upcoming-events {
   padding: 60px 0;
-  flex-direction: row;
   h2 {
     padding: 20px 0;
     color: #F9A468;
@@ -57,13 +56,17 @@
   }
 }
 
+.activity-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .each-event {
-  margin-bottom: 30px;
-  padding: 10px 15px;
-  border: 1px solid #454545;
-  border-radius: 4px;
-  width: 450px;
   height: 300px;
+  width: 400px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border-radius: 4px;
   p {
     color: #454545;
     font-size: 24px;
@@ -71,11 +74,9 @@
     margin: 0;
   }
   &:hover {
-    background-color: rgba(0, 0, 0, 0.3);
     transition: 0.3s;
-    border: 1px solid rgba(0, 0, 0, 0.3);
     p {
-      color: white;
+      color: #454545;
       text-decoration: none;
       margin: 0;
     }
@@ -88,6 +89,7 @@
 
 
 .recommended-places {
+  background-repeat: no-repeat;
   padding: 60px 0;
   h2 {
     padding: 20px 0;
