@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     activity = Activity.find(params[:activity_id])
-    order = Order.create!(activity_sku: activity.sku, amount: activity.price, status: "pending", user: current_user)
+    order = Order.create!(activity_id: activity.id, activity_sku: activity.sku, amount: activity.price, status: "pending", user: current_user)
     # raise
     authorize order
     redirect_to new_order_payment_path(order)
