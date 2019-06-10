@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_104523) do
+ActiveRecord::Schema.define(version: 2019_06_07_062801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_104523) do
     t.index ["place_id"], name: "index_place_photos_on_place_id"
   end
 
+  create_table "place_reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "place_id"
+    t.index ["place_id"], name: "index_place_reviews_on_place_id"
+    t.index ["user_id"], name: "index_place_reviews_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "category"
     t.integer "dogginess_scale"
@@ -109,6 +118,8 @@ ActiveRecord::Schema.define(version: 2019_06_06_104523) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "location"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
@@ -143,5 +154,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_104523) do
   add_foreign_key "orders", "activities"
   add_foreign_key "orders", "users"
   add_foreign_key "place_photos", "places"
+  add_foreign_key "place_reviews", "places"
+  add_foreign_key "place_reviews", "users"
   add_foreign_key "places", "users"
 end
