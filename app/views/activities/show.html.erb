@@ -18,6 +18,10 @@
       <p><strong>Location</strong> <%= @activity.place.name %></p>
       <p><strong>Category</strong> <%= @activity.category %></p>
       <p><strong>Creator</strong> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'activity_id', @activity.id %>
+        <%= submit_tag 'Place Order', data: { confirm:"Are you sure?" }, class: 'btn btn-primary' %>
+      <% end %>
     </div>
 
     <div class="activity-photos">

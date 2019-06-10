@@ -10,14 +10,14 @@ url = 'http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_
 
 puts 'Cleaning Database'
 
-User.destroy_all
+Order.destroy_all
 Place.destroy_all
 Favorite.destroy_all
-Activity.destroy_all
 ActivityReview.destroy_all
+Activity.destroy_all
 Dog.destroy_all
 Guest.destroy_all
-Order.destroy_all
+User.destroy_all
 
 puts 'Database cleaned'
 
@@ -49,12 +49,16 @@ puts '------------'
 
 puts 'Creating places'
 10.times do
-  Place.create!(
+  plc = Place.create!(
     category: ['restaurant', 'hotel', 'villa', 'park'].sample,
     dogginess_scale: [1, 2, 3, 4, 5].sample,
     user_id: rand(1..10),
     name: Faker::Coffee.blend_name,
     location: ['Canggu shortcut', 'Canggu club', 'Denpasar', 'Seminyak', 'Ubud', 'Ubud Palace', 'Singaraja', 'Uluwatu', 'Uluwatu beach'].sample
+    )
+  PlacePhoto.create!(
+    remote_photo_url: 'https://media-cdn.tripadvisor.com/media/photo-s/16/bf/fb/11/old-mans.jpg',
+    place: plc
     )
 end
 

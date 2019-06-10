@@ -2,7 +2,6 @@
   font-weight: 200;
   background-image: none;
   background-color: #FFFAF7;
-  // margin-bottom: 80px;
 }
 
 .team {
@@ -33,7 +32,6 @@
 }
 
 #ourteam {
-  // padding-bottom: 30px;
   color: #FFA500 !important;
   h2 {
     font-family: $headers-font;
@@ -43,22 +41,18 @@
   }
 }
 
+.card-team {
+  background-color: #FFFAF7;
+  position: inherit;
+}
+
 .avatar-extra-large {
-// padding-top: px;
-width: 150px;
-height: 150px;
-align-items: center;
-justify-content: space-around;
-position: relative;
-border-radius:  50%;
-margin-left: auto;
-margin-right: auto;
+  width: 150px;
+  height: 150px;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  border-radius:  50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-
-.d-flex {
-padding-top: 40px;
-
-}
-
-
