@@ -11,6 +11,7 @@
   background-size: cover;
   background-position: center;
   height: 350px;
+  max-width: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +52,11 @@
 }
 
 .card-content {
-  visibility: hidden;
   .card-name, .card-description {
     color: white;
+  }
+  .card-description {
+    max-width: 320px;
   }
 }
 
@@ -93,7 +96,7 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   .card-content {
-    visibility: hidden;
+    // visibility: hidden;
   }
 }
 
