@@ -1,0 +1,68 @@
+section ul li {
+  text-align: left;
+  margin: 0 1.5%;
+  width: 63%;
+  float: left;
+  list-style: none;
+}
+
+.importants {
+  a {
+    color: white;
+  }
+}
+
+.footer-buttons {
+  li {
+    a {
+      color: white;
+    }
+  }
+}
+
+.footer-contacts {
+  p, a {
+    color: white;
+  }
+}
+
+#twitter-tag {
+  a {
+    color: white;
+  }
+}
+
+.fancy {
+  text-align: left;
+  text-decoration: underline;
+}
+
+.footer {
+  background-color : #FFA605;
+  color: white;
+  position: relative;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#footer-social p {
+  color: rgba(255,255,255,.7);
+  margin-bottom: 30px;
+}
+
+#footer-social h3 {
+  color: white;
+}
+
+#footer-sub {
+  padding: 20px 0px;
+}
+
+#footer-social-icons {
+  a {
+    color: white;
+  }
+}

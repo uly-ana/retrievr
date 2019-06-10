@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     # @top_places = # sorted places by its avg rating
   end
+
+  def about
+    render 'about'
+  end
 end

@@ -10,7 +10,7 @@
   <div class="container">
     <div class="upcoming-events">
       <h2>Upcoming events</h2>
-
+      
       <% @activities = Activity.order(:date).first(2) %>
       <div class="d-flex justify-content-center align-items-center flex-wrap">
         <% @activities.each do |activity| %>
@@ -53,6 +53,9 @@
             <% end %>
           </div>
         <% end %>
+      </ul>
     </div>
   </div>
 </div>
+
+<%= render 'shared/footer' %>

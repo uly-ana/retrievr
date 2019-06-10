@@ -1,0 +1,12 @@
+var cards = document.querySelectorAll('.card');
+var contents = '<%= j render "favorites/delete", activity: @activity %>';
+
+cards.forEach((card) => {
+  if (card.dataset.activityId == <%= @activity.id %>) {
+    var btn = $(card).find('button')[0]
+
+    if (!btn.classList.contains('btn-red')) {
+      $(btn).parent().replaceWith(contents);
+    }
+  }
+});

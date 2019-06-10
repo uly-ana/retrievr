@@ -5,11 +5,21 @@
         <div class="card-name">
           <h3><%= activity.name %></h3>
         </div>
+
         <div class="card-description">
           <p>
             By: <%= activity.owner.first_name %> <%= activity.owner.last_name %>
           </p>
         </div>
+
+        <div class="card-favorite">
+          <% if Favorite.find_by(activity_id: activity.id, user_id: current_user.id) %>
+            <%= render 'favorites/delete', activity: activity %>
+          <% else %>
+            <%= render 'favorites/create', activity: activity %>
+          <% end %>
+        </div>
+
         <div class="card-action">
           <i class="far fa-arrow-alt-circle-right"></i>
         </div>
