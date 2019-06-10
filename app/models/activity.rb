@@ -5,6 +5,8 @@ class Activity < ApplicationRecord
   has_many :activity_reviews, dependent: :destroy
   has_many :guests
   has_many :users, through: :guests
+  has_many :favorites
+
   monetize :price_cents
 
   accepts_nested_attributes_for :activity_photos
