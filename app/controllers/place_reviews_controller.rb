@@ -7,10 +7,11 @@ class PlaceReviewsController < ApplicationController
     @place_review.place = @place
     @place_review.user = @user
     authorize @place_review
+    raise
 
     if @place_review.save
       flash[:notice] = 'Review was successfully created'
-      redirect_to places_path(@place)
+      redirect_to place_path(@place)
     else
       flash[:error] = "Error creating review: #{@place_review.errors}"
       render 'places/show'
