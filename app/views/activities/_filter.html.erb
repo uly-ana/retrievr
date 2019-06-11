@@ -1,44 +1,46 @@
 <div class="filter-dropdown">
   <div class="dropdown-content dropdown-hide" id="dropdownFilter">
-    <div class="price-filter mb-2">
-      <p id="category"><strong>Price</strong></p>
-      <div class="price-params">
-        <%= link_to 'Price DESC', activities_path(price: 'DESC'), remote: true %>
+    <div class="dropdown-container">
+      <div class="price-filter mb-2">
+        <p id="category"><strong>Price</strong></p>
+        <div class="price-params">
+          <%= link_to 'Price DESC', activities_path(price: 'DESC'), remote: true %>
+        </div>
       </div>
-    </div>
 
-    <div class="category-filter">
-      <p id="category"><strong>Category</strong></p>
-      <ul class="category">
-        <li>
-          <%= link_to 'Pool', activities_path(category: 'Pool'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Feast', activities_path(category: 'Feast'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Dance', activities_path(category: 'Dance'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Meetup', activities_path(category: 'Meetup'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Brunch', activities_path(category: 'Brunch'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Festival', activities_path(category: 'Festival'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Dinner', activities_path(category: 'Dinner'), remote: true %>
-        </li>
-        <li>
-          <%= link_to 'Charity', activities_path(category: 'Charity'), remote: true %>
-        </li>
-      </ul>
-    </div>
-    <div class="reset-filter">
-      <p id="category"><strong>Reset filter</strong></p>
-      <%= link_to 'Reset', activities_path, remote: true %>
+      <div class="category-filter">
+        <p id="category"><strong>Category</strong></p>
+        <ul class="category">
+          <li>
+            <%= link_to 'Pool', activities_path(category: 'Pool'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Feast', activities_path(category: 'Feast'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Dance', activities_path(category: 'Dance'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Meetup', activities_path(category: 'Meetup'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Brunch', activities_path(category: 'Brunch'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Festival', activities_path(category: 'Festival'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Dinner', activities_path(category: 'Dinner'), remote: true %>
+          </li>
+          <li>
+            <%= link_to 'Charity', activities_path(category: 'Charity'), remote: true %>
+          </li>
+        </ul>
+      </div>
+      <div class="reset-filter">
+        <p id="category"><strong>Reset filter</strong></p>
+        <%= link_to 'Reset', activities_path, remote: true %>
+      </div>
     </div>
   </div>
 </div>
