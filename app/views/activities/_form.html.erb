@@ -1,21 +1,40 @@
-<%= simple_form_for @activity, html: { multipart: true } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description, placeholder: 'minimum: 20 characters' %>
-  <%= f.input :address %>
-  <%= f.input :date, as: :date, html5: true %>
-  <%= f.input :price, placeholder: '$50.00' %>
-  <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
-  <%= f.input :limit %>
-  <%= f.input :place, collection: Place.all %>
+<%= simple_form_for @activity, html: { multipart: true, class: 'row' } do |f| %>
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <%= f.input :name %>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <%= f.input :description, placeholder: 'minimum: 20 characters' %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :address %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :date, as: :date, html5: true %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :price, placeholder: '$50.00' %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :limit %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-6">
+    <%= f.input :place, collection: Place.all %>
+  </div>
 
-  <%= f.fields_for :activity_photos do |p| %>
-    <div class="field">
-      <%= f.label :photo %>
-      <br>
-      <%= f.file_field :photo, multiple: true %>
-    </div>
-  <% end %>
-  <br>
+  <div class="col-sm-12 col-md-12 col-lg-12 mb-4 text-center">
+    <%= f.fields_for :activity_photos do |p| %>
+      <div class="field">
+        <%= f.label :photo %>
+        <br>
+        <%= f.file_field :photo, multiple: true %>
+      </div>
+    <% end %>
+  </div>
 
-  <%= f.submit "Create Event", class: 'btn btn-outline-warning'  %>
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <%= f.submit "Create Event", class: 'btn btn-outline-warning submit'  %>
+  </div>
 <% end %>
