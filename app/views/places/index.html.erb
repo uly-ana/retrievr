@@ -49,9 +49,7 @@
       <div
         id="map"
         style="height: 495px;
-        width: 100%;
-        "
-
+        width: 100%;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
@@ -59,15 +57,11 @@
   </div>
 </div>
 
+<%= link_to new_place_path do %>
+  <button type="button" class="btn btn-outline-warning">Add place</button>
+<% end %>
 
-
-      <%= link_to new_place_path do %>
-  <!-- <i class="fas fa-plus-circle">  Add a new place</i> --> <button type="button" class="      btn btn-outline-warning"> Add place</button>
-    <% end %>
-
-
-
-<%= render 'shared/footer' %>
+<%#= render 'shared/footer' %>
 
 <%# @places.each do |place| %>
   <!-- <ul class="list-group">
