@@ -1,4 +1,4 @@
-const downFilter = document.querySelector('.dropdown-filter');
+const downFilter = document.querySelector('.filter');
 const dropdownContent = document.querySelector('.dropdown-content');
 
 const dropdownFilter = () => {
