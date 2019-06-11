@@ -10,76 +10,95 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="user-content">
-    <div class="user-info d-flex justify-content-between">
-      <div class="contact-me">
-        <h4>Contact</h4>
-      </div>
-      <div class="profile-pic">
-        <% if @user.avatar.present? %>
-          <%= cl_image_tag @user.avatar, alt: @user.username, width: 250, height: 250, crop: :fill, g: :face, radius: :max %>
-        <% else %>
-          <%= image_tag "http://diazworld.com/images/avatar-placeholder.png", alt: "avatar-placeholder", width: 250, height: 250 %>
-        <% end %>
-      </div>
-      <div class="about-me">
-        <h4>About me</h4>
-        <% if @user.bio.present? %>
-          <p><%= @user.bio %></p>
-        <% else %>
-          <p><%= user.name %> has no bio yet</p>
-        <% end %>
+<div class="profile-container">
+  <div class="container">
+    <div class="profile-main d-flex">
+
+      <div class="user-info d-flex justify-content-between">
+
+        <div class="profile-pic">
+          <% if @user.avatar.present? %>
+            <%= cl_image_tag @user.avatar, alt: @user.username, class: "avatar-large" %>
+          <% else %>
+            <%= image_tag "http://diazworld.com/images/avatar-placeholder.png", alt: "avatar-placeholder", width: 200, height: 200 %>
+          <% end %>
+        </div>
+
+        <div class="contact-me">
+          <h4>Contact</h4>
+          <% if @user.email.present? %>
+            <p>e-mail: <%= @user.email %></p>
+          <% else %>
+            <p>No contact details yet</p>
+          <% end %>
+        </div>
+
+        <div class="about-me">
+          <h4>About me</h4>
+          <% if @user.bio.present? %>
+            <p><%= @user.bio %></p>
+          <% else %>
+            <p><%= user.name %> has no bio yet</p>
+          <% end %>
+        </div>
         <div class="acc-settings">
           <%= link_to "Account credentials", edit_user_registration_path, class: 'user-btn' %>
 
           <%= link_to "Delete account", user_registration_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'user-btn' %>
         </div>
+
       </div>
-    </div>
-  </div>
 
-  <div class="user-dogs">
-    <h2 class="meet-friend text-center">Meet my best friend
-      <%= link_to "+", new_user_dog_path %></h2>
-    <div class="all-user-dogs d-flex justify-content-around">
-      <% @user.dogs.each do |dog| %>
-        <div class="each-dog">
-          <div class="dog-avatar">
-            <% if dog.photo.present? %>
-              <%= cl_image_path dog.photo, alt: dog.name, width: 300, height: 250, crop: :fill %>
-            <% else %>
-              <%= image_tag "https://meredith.nhcrafts.org/wp-content/uploads/dog-placeholder.jpg", alt: "dog-placeholder", width: 300, height: 250 %>
-            <% end %>
-          </div>
-          <h5><strong><%= dog.name %></strong></h5>
-          <%= dog.my_story %>
-          <br>
-          <div class="dog-settings">
-             <%= link_to edit_user_dog_path(dog) do %><i class="fas fa-pencil-alt"></i><% end %>
-             <%= link_to destroy_dogs_path(dog), method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt"></i><% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
 
-  <div class="user-favorites">
-    <h2 class="text-center">Favorites</h2>
-      <% if @user.favorites.present? %>
-        <div class="favorite-user-activity d-flex">
-          <% @user.favorites.each do |favorite| %>
-            <%= link_to activity_path(favorite.activity) do %>
-              <div class="favorite-card d-flex">
-                <%= cl_image_tag favorite.activity.activity_photos.first.photo, width: 271, height: 165, crop: :fill %>
-                <p ><strong><%= favorite.activity.name %></strong></p>
+
+      <div class="user-addition">
+
+        <div class="user-dogs">
+          <h2 class="meet-friend">Meet my best friend
+            <%= link_to "+", new_user_dog_path %></h2>
+          <div class="all-user-dogs d-flex justify-content-around">
+            <% @user.dogs.each do |dog| %>
+              <div class="each-dog">
+                <div class="dog-avatar">
+                  <% if dog.photo.present? %>
+                    <%= cl_image_path dog.photo, alt: dog.name, width: 250, height: 250, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "https://meredith.nhcrafts.org/wp-content/uploads/dog-placeholder.jpg", alt: "dog-placeholder", width: 250, height: 250 %>
+                  <% end %>
+                </div>
+                <div class="dog-desription">
+                  <h5><strong><%= dog.name %></strong></h5>
+                  <%= dog.my_story %>
+                  <br>
+                  <div class="dog-settings">
+                     <%= link_to edit_user_dog_path(dog) do %><i class="fas fa-pencil-alt"></i><% end %>
+                     <%= link_to destroy_dogs_path(dog), method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt"></i><% end %>
+                  </div>
+                </div>
               </div>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      <% else %>
-        <p class="text-center">No favorite places or events added yet</p>
-      <% end %>
-  </div>
 
+        <div class="user-favorites">
+          <h2>Favorites</h2>
+            <% if @user.favorites.present? %>
+              <div class="favorite-user-activity d-flex">
+                <% @user.favorites.each do |favorite| %>
+                  <%= link_to activity_path(favorite.activity) do %>
+                    <div class="favorite-card d-flex">
+                      <%= cl_image_tag favorite.activity.activity_photos.first.photo, width: 271, height: 165, crop: :fill %>
+                      <p ><strong><%= favorite.activity.name %></strong></p>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <p class="text-center">No favorite places or events added yet</p>
+            <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
