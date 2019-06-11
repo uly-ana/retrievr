@@ -5,22 +5,22 @@
   <div class="col-sm-12 col-md-12 col-lg-12">
     <%= f.input :description, placeholder: 'minimum: 20 characters' %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :address %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :date, as: :date, html5: true %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :price, placeholder: '$50.00' %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :limit %>
   </div>
-  <div class="col-sm-6 col-md-6 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :place, collection: Place.all %>
   </div>
 
