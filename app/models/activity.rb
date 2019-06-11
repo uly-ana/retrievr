@@ -5,6 +5,8 @@ class Activity < ApplicationRecord
   has_many :activity_reviews, dependent: :destroy
   has_many :guests
   has_many :users, through: :guests
+  has_many :favorites
+
   monetize :price_cents
 
   accepts_nested_attributes_for :activity_photos
@@ -16,4 +18,15 @@ class Activity < ApplicationRecord
   validates :date, presence: true
   validates :category, presence: true
   validates :limit, presence: true
+  validate :not_blank_date
+
+  private
+
+  def not_blank_date
+    if !date.nil?
+      errors.add(:date, "can't be in the past") if date.to_date < Date.today
+
+    end
+  end
 end
+

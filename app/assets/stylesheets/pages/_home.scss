@@ -26,3 +26,97 @@
   text-align: center;
   color: #454545;
 }
+
+.upcoming-events {
+  padding: 60px 0;
+  h2 {
+    padding: 20px 0;
+    color: #F9A468;
+    margin-bottom: 15px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.event-container {
+  background-color: #FFFAF7;
+}
+
+.upcoming-events-btn {
+  margin-top: 40px ;
+  padding: 10px 15px;
+  border: 1px solid #F9A468;
+  border-radius: 4px;
+  color: #F9A468;
+  &:hover {
+    background-color: #F9A468;
+    color: white;
+    transition: 0.3s;
+  }
+}
+
+.activity-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.each-event {
+  height: 300px;
+  width: 400px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border-radius: 4px;
+  p {
+    color: #454545;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 0;
+  }
+  &:hover {
+    transition: 0.3s;
+    p {
+      color: #454545;
+      text-decoration: none;
+      margin: 0;
+    }
+  }
+}
+
+.places-container {
+  background-color: white;
+}
+
+
+.recommended-places {
+  background-repeat: no-repeat;
+  padding: 60px 0;
+  h2 {
+    padding: 20px 0;
+    color: #F9A468;
+    margin-bottom: 15px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.place-card {
+  &:hover {
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+
+.place-card-info {
+  h3 {
+    color: #454545;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  p {
+    color: #454545;
+    text-decoration: none;
+  }
+}

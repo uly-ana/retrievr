@@ -1,19 +1,35 @@
-<div class="static-page">
-  <div class="container">
-    <h1 id="about-title">About Retrievr</h1>
-    <p>Retrievr is the world's leading pet travel and lifestyle brand. Our website and mobile apps connect millions of pet owners around the globe with more than 250,000 pet friendly places. Users can seamlessly compare and book thousands of pet friendly hotels and vacation rentals directly on the app, all with no booking fees. Planning an epic dog-friendly road trip is a breeze using Retrievr’s database of pup-approved restaurants, dog parks, hiking trails and shopping destinations. Pet parents can rest easy knowing that our directory of licensed veterinarians, sitters, and groomers is just a tap away.</p>
-    <p>Whether you're trekking across town or around the world, Retriever’s team of pet travel experts are available by phone or chat to help you find pet friendly resources or book a pet friendly hotel. Retrievr is every dog lover's second best friend!</p>
-    <hr>
-  </div>
+<div class="container">
+  <h1 id="about-title">About Retrievr</h1>
+  <p>Retrievr is the world's leading pet travel and lifestyle brand. Our website and mobile apps connect millions of pet owners around the globe with more than 250,000 pet friendly places. Users can seamlessly compare and book thousands of pet friendly hotels and vacation rentals directly on the app, all with no booking fees. Planning an epic dog-friendly road trip is a breeze using Retrievr’s database of pup-approved restaurants, dog parks, hiking trails and shopping destinations. Pet parents can rest easy knowing that our directory of licensed veterinarians, sitters, and groomers is just a tap away.</p>
+  <p>Whether you're trekking across town or around the world, Retriever’s team of pet travel experts are available by phone or chat to help you find pet friendly resources or book a pet friendly hotel. Retrievr is every dog lover's second best friend!</p>
+  <hr>
+</div>
 
-  <div class="container">
-    <h2 id="meet-ourteam">Meet our team</h2>
-    
-    <div class="card-team">
-      <%= image_tag "sari.jpg", alt: "Sari", class: "avatar avatar-extra-large", id: "Sari" %>
-      <%= image_tag "Rayhan.jpeg", alt: "Rayhan", class: "avatar avatar-extra-large", id: "Rayhan" %>
-      <%= image_tag "Jana.jpeg", alt: "Jana", class: "avatar avatar-extra-large", id: "Jana" %>
-      <%= image_tag "uly.jpg", alt: "Uly", class: "avatar avatar-extra-large", id: "Uly" %>
+<div class="static-page">
+  <div class="card-team">
+    <div class="container">
+      <h2 id="ourteam">Meet our team</h2>
+      <div class="d-flex justify-content-between team">
+        <div class="text-center">
+          <%= image_tag "sari.jpg", alt: "Sari", class: "avatar avatar-extra-large", id: "Sari"%>
+          <h5>Sari Harasti</h5>
+        </div>
+        <div class="text-center">
+          <%= image_tag "Rayhan.jpeg", alt: "Rayhan", class: "avatar avatar-extra-large", id: "Rayhan" %>
+          <h5>Rayhan</h5>
+        </div>
+        <div class="text-center">
+          <%= image_tag "Jana.jpeg", alt: "Jana", class: "avatar avatar-extra-large", id: "Jana" %>
+          <h5>Jana</h5>
+        </div>
+        <div class="text-center">
+          <%= image_tag "uly.jpg", alt: "Uly", class: "avatar avatar-extra-large", id: "Uly" %>
+          <h5>Uly</h5>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<%= render 'shared/footer' %>
+

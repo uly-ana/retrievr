@@ -9,13 +9,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.user = @user
-    if @order.save
-      redirect_to order_path(@order)
-    else
-      render :new
-    end
+    activity = Activity.find(params[:activity_id])
+    order = Order.create!(activity_id: activity.id, activity_sku: activity.sku, amount: activity.price, status: "pending", user: current_user)
+    # raise
+    authorize order
+    redirect_to new_order_payment_path(order)
   end
 
   def new

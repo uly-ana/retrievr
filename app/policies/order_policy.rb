@@ -8,4 +8,8 @@ class OrderPolicy < ApplicationPolicy
   def show?
     record.user == user
   end
+
+  def create?
+    user.present?
+  end
 end

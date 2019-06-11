@@ -3,7 +3,7 @@
     <div class="activity-about">
       <div class="about-content d-flex justify-content-around align-items-center">
         <%= cl_image_tag @activity.activity_photos.first.photo, crop: :fill, width: 500, height: 300 %>
-        <h1 style="color: orange"><%= @activity.name %></h1>
+        <h1 style="color: orange; margin-left: 1.4em"><%= @activity.name %></h1>
       </div>
     </div>
 
@@ -18,6 +18,10 @@
       <p><strong>Location</strong> <%= @activity.place.name %></p>
       <p><strong>Category</strong> <%= @activity.category %></p>
       <p><strong>Creator</strong> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'activity_id', @activity.id %>
+        <%= submit_tag 'Place Order', data: { confirm:"Are you sure?" }, class: 'btn btn-primary' %>
+      <% end %>
     </div>
 
     <div class="activity-photos">

@@ -29,8 +29,10 @@
             </div>
 
             <div class="place-save">
-              <%= image_tag "save.svg", alt: "save", width: 36, height: 36, class: 'save' %>
-              <p style="margin: 0; color: #ff0000">Save</p>
+              <%= button_to place_favorites_path(place), remote: true, class: 'place-fave' do %>
+                <%= image_tag "save.svg", alt: "save", width: 36, height: 36, class: 'save' %>
+                <p style="margin: 0; color: #ff0000">Save</p>
+              <% end %>
             </div>
           </div>
         <% end %>
