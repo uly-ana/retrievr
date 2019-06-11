@@ -1,13 +1,16 @@
 const reviewShow = () => {
   const reviewSubmit = document.querySelector('#new_review');
-  const reviewForm = document.querySelector('.activity-review-form');
-
-
+  const activityReviewForm = document.querySelector('.activity-review-form');
+  const placeReviewForm = document.querySelector('.place-review-form');
   if (reviewSubmit != null) {
     reviewSubmit.addEventListener('click', (e) => {
       e.preventDefault();
 
-      reviewForm.classList.toggle('hide-form');
+      if (placeReviewForm == null) {
+        activityReviewForm.classList.toggle('hide-form');
+      } else {
+        placeReviewForm.classList.toggle('hide-form');
+      }
     });
   }
 }

@@ -26,7 +26,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     @activity = Activity.find(params[:activity_id])
-    @place = Place.find(params[:place_id])
+    @place = @activity.place
     @favorite = Favorite.find(params[:id])
     authorize @favorite
     @favorite.destroy
