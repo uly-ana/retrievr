@@ -1,3 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-
-Retrievr app
+Retrievr, an app for creating events for your dog(s) and finding dog friendly places
