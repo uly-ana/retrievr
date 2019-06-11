@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_022156) do
     t.text "content"
     t.bigint "user_id"
     t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_place_reviews_on_place_id"
     t.index ["user_id"], name: "index_place_reviews_on_user_id"
   end

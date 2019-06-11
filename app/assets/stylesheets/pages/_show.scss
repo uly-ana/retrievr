@@ -2,10 +2,26 @@
 .activity-grid {
   display: grid;
   grid-template-rows: repeat(4, auto);
+  margin-top: 40px;
 }
 
-.activity-about, .activity-description, .activity-details {
-  border-bottom: 2px solid rgba(0, 0, 0, .2);
+.activity-about, .activity-description {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.activity-details {
+  flex-direcrion: row;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.activity-details-category {
+  padding-right: 150px;
+}
+
+.activity-details-input {
+  padding-right: 250px;
 }
 
 .about-content {
@@ -77,7 +93,6 @@
 .about-me {
   width: 40%;
   h4 {
-
     text-align: left;
   }
 }
@@ -161,42 +176,3 @@
     font-size: 20px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
