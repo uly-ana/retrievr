@@ -53,13 +53,15 @@
 }
 
 .dropdown-content {
-  display: flex;
-  justify-content: space-between;
   padding: 4px 8px;
   div {
-    display: inline-block;
     div {
       display: inline-block;
     }
   }
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
 }
