@@ -2,18 +2,18 @@
 // Landing page
 .banner {
   height: 100vh;
-  background-image: linear-gradient(rgba(250, 250, 250, 0.3), rgba(250, 250, 250, 0.3)), url('https://res.cloudinary.com/dgm2k7aer/image/upload/v1559884093/patrick-hendry-221863-unsplash_wto3ry.jpg');
+  background-image: linear-gradient(rgba(250, 250, 250, 0.3), rgba(250, 250, 250, 0.3)), asset-url('bg.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
   h1 {
     text-align: center;
     padding-top: 30vh;
-    color: #454545;
+    color: #FFA605;
     font-size: 72px;
     font-family: 'Roboto';
   }
-  p {
+  h3 {
     color: #454545;
     text-align: center;
   }
@@ -31,7 +31,7 @@
   padding: 60px 0;
   h2 {
     padding: 20px 0;
-    color: #F9A468;
+    color: #FFA605;
     margin-bottom: 15px;
   }
   a {
@@ -46,11 +46,11 @@
 .upcoming-events-btn {
   margin-top: 40px ;
   padding: 10px 15px;
-  border: 1px solid #F9A468;
+  border: 1px solid #FFA605;
   border-radius: 4px;
   color: #F9A468;
   &:hover {
-    background-color: #F9A468;
+    background-color: #FFA605;
     color: white;
     transition: 0.3s;
   }
@@ -93,7 +93,7 @@
   padding: 60px 0;
   h2 {
     padding: 20px 0;
-    color: #F9A468;
+    color: #FFA605;
     margin-bottom: 15px;
   }
   a {
