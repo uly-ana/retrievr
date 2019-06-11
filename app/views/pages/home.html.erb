@@ -1,8 +1,8 @@
 <div class="banner">
   <div class="container">
     <h1>Retrievr</h1>
-    <p>Spend more time with your best friend</p>
-    <p><%= text_field_tag :search, nil, placeholder: 'Enter location...', class: "searchbar" %></p>
+    <h3>Spend more time with your best friend</h3>
+   <!-- <p><%#= text_field_tag :search, nil, placeholder: 'Enter location...', class: "searchbar" %></p> -->
   </div>
 </div>
 
@@ -45,11 +45,6 @@
                 </div>
                 <div class="place-card-info" style="padding-top: 10px;">
                   <h3><%= place.category %></h3>
-                  <div class="rating">
-                    <% place.place_reviews.each do |review| %>
-                      <p><%= review.rating %></p>
-                    <% end %>
-                  </div>
                 </div>
               </div>
             <% end %>
