@@ -69,7 +69,7 @@ puts 'Creating activities'
   act = Activity.create!(
     address: Faker::Address.street_name,
     description: Faker::Lorem.sentence(20),
-    date: Time.at(rand * Time.now.to_i),
+    date: Time.at(Time.now + rand(100000..1000000)),
     name: Faker::Hipster.word,
     category: ['Dance', 'Meetup', 'Brunch', 'Festival', 'Dinner'].sample,
     limit: rand(5..20),
