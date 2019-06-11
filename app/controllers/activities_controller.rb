@@ -49,6 +49,7 @@ class ActivitiesController < ApplicationController
       end
       redirect_to activity_path(@activity)
     else
+      # @activity_photos = @activity.activity_photos.build
       render :new
     end
   end

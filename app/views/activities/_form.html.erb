@@ -12,7 +12,7 @@
     <%= f.input :date, as: :date, html5: true %>
   </div>
   <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :price, placeholder: '$50.00' %>
+    <%= f.input :price, placeholder: '$00.00' %>
   </div>
   <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
@@ -23,15 +23,13 @@
   <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :place, collection: Place.all %>
   </div>
-
-  <div class="col-sm-12 col-md-12 col-lg-12 mb-4 text-center">
+    <div class="col-sm-6 col-md-12 col-lg-6 mb-2" id="upload-btn-wrapper">
     <%= f.fields_for :activity_photos do |p| %>
-      <div class="field">
-        <%= f.label :photo %>
-        <br>
+      <label class="field">
         <%= f.file_field :photo, multiple: true %>
-      </div>
+      </label>
     <% end %>
+    <br>
   </div>
 
   <div class="col-sm-12 col-md-12 col-lg-12">
