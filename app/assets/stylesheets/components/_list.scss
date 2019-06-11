@@ -15,3 +15,13 @@
 .list-inline li {
   display: inline;
 }
+
+
+.list-group-item, .card-reviews {
+  background-color: #FFFAF7;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
