@@ -22,12 +22,12 @@ Rails.application.routes.draw do
     resources :favorites, only: [:destroy, :create]
   end
 
-
-  resources :orders, only: [:index, :show, :create, :new, :destroy] do
+  resources :orders, only: [:index, :create, :destroy] do
     resources :payments, only: [:new, :create]
   end
 
   resources :places do
+    resources :place_reviews, only: [:create]
     resources :favorites, only: [:create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

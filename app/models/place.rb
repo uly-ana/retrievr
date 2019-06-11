@@ -1,7 +1,9 @@
 class Place < ApplicationRecord
   belongs_to :user
   has_many :place_photos, dependent: :destroy
+  has_many :place_reviews, dependent: :destroy
   has_many :activities, dependent: :destroy
+  
   accepts_nested_attributes_for :place_photos
 
   geocoded_by :location

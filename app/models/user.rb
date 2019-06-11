@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_many :dogs, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :activity_reviews, dependent: :destroy
+  has_many :place_reviews, dependent: :destroy
   has_many :places, dependent: :destroy
   has_many :activities, class_name: 'Activity', foreign_key: :owner_id
+  has_many :orders
 
   validates :first_name, presence: true
   validates :last_name, presence: true

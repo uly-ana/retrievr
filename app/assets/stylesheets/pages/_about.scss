@@ -1,6 +1,12 @@
 .static-page {
   font-weight: 200;
   background-image: none;
+  background-color: #FFFAF7;
+  padding-bottom: 90px;
+}
+
+.team {
+  padding-bottom: 32px;
 }
 
 .hr {
@@ -16,37 +22,32 @@
   overflow: hidden;
 }
 
-#about-title h1 {
-  font-family: 'Righteous', cursive;
-  font-weight: 200;
-  margin: 36px, 0px;
-  line-height: 1;
-}
-
-#ourteam {
-  // padding-bottom: 30px;
-  h2 {
-    font-family: 'Righteous', cursive;
-    font-weight: 150;
+#about-title {
+  color: #FFA500 !important;
+  h1 {
+    font-family: $headers-font;
+    font-weight: 200;
     margin: 36px, 0px;
     line-height: 1;
-    color: #FFA500;
   }
 }
 
-
+#ourteam {
+  color: #FFA500 !important;
+  h2 {
+    font-family: $headers-font;
+    font-weight: 150;
+    margin: 36px, 0px;
+    line-height: 1;
+  }
+}
 
 .card-team {
   background-color: #FFFAF7;
-  // border-radius: 50%;
   position: inherit;
-  // width: 1152px;
-  // height: 447px;
 }
 
-
 .avatar-extra-large {
-// padding-top: px;
   width: 150px;
   height: 150px;
   align-items: center;
@@ -56,10 +57,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-
-//.d-flex {
-//  padding-top: 40px;
-//}
-
-

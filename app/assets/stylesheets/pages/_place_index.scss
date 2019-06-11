@@ -11,8 +11,6 @@
   a {
     &:hover {
       text-decoration: none;
-      transform: scale(1.1);
-      transition: all 1s linear;
     }
   }
 }
@@ -31,17 +29,17 @@
   .place-save {
     position: absolute;
     right: 0;
+    bottom: -12px;
     .save {
       filter: invert(22%) sepia(66%) saturate(6484%) hue-rotate(353deg) brightness(92%) contrast(128%);
     }
   }
 }
 
-// .actions {
-//   position: fixed;
-//   right: 85px;
-//   top: 250px;
-// }
+.place-fave {
+  border: none;
+  background: none;
+}
 
 @media only screen and (max-width: 992px) {
   .place-container {

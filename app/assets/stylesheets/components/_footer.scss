@@ -4,12 +4,20 @@ section ul li {
   width: 63%;
   float: left;
   list-style: none;
-}
-
-.importants {
   a {
     color: white;
   }
+}
+
+section {
+  span a {
+    color: white;
+  }
+}
+
+.footer-links a {
+  font-size: 20px;
+  color: white;
 }
 
 .footer-buttons {
@@ -35,15 +43,15 @@ section ul li {
 .fancy {
   text-align: left;
   text-decoration: underline;
+  font-size: 20px;
+  padding-top: 16px;
 }
 
 .footer {
-  background-color : #FFA605;
+  background-color: #FFA605;
   color: white;
   position: relative;
   max-width: 100%;
-  text-align: center;
-  margin-top: 80px;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -53,8 +61,20 @@ section ul li {
   margin-bottom: 30px;
 }
 
-#footer-social h3 {
+#footer-social h6 {
   color: white;
+}
+
+#footer-social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.footer-copyright {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
 }
 
 #footer-sub {

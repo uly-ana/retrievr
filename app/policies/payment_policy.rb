@@ -1,15 +1,16 @@
-class OrderPolicy < ApplicationPolicy
+class PaymentPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
-    record.user == user
+  def new?
+    user.present?
   end
 
   def create?
     user.present?
   end
+
 end
