@@ -22,7 +22,6 @@ class FavoritesController < ApplicationController
         render :create
       end
     end
-
   end
 
   def destroy
@@ -39,7 +38,6 @@ class FavoritesController < ApplicationController
         render :delete
       end
     end
-
   end
 
   # private

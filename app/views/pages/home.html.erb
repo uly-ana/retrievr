@@ -12,6 +12,7 @@
       <h2>Upcoming events</h2>
 
       <% @activities = Activity.order(:date).first(2) %>
+
       <div class="activity-card d-flex justify-content-around ">
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
@@ -54,7 +55,7 @@
             <% end %>
           </div>
         <% end %>
-      </ul>
+
     </div>
   </div>
 </div>
