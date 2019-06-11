@@ -17,14 +17,13 @@ Rails.application.routes.draw do
 
 
   resources :activities do
+    resources :payments, only: [:new, :create]
     resources :activity_reviews, only: [:create]
     resources :activity_photos, only: [:create]
     resources :favorites, only: [:destroy, :create]
   end
 
-  resources :orders, only: [:index, :create, :destroy] do
-    resources :payments, only: [:new, :create]
-  end
+  resources :orders, only: [:index, :create, :destroy]
 
   resources :places do
     resources :place_reviews, only: [:create]

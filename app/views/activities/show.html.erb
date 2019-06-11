@@ -27,15 +27,7 @@
         <p><%= @activity.category %></p>
         <p><%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
       </div>
-
-      <div class="activity-details-btn">
-        <%= form_tag orders_path do %>
-          <%= hidden_field_tag 'activity_id', @activity.id %>
-          <%= submit_tag 'Place Order', data: { confirm:"Are you sure?" }, class: 'btn btn-primary' %>
-        <% end %>
-      </div>
     </div>
-
 
     <div class="activity-photos">
       <div class="act-photos">
@@ -101,5 +93,25 @@
       <% end %>
     </div>
   </div>
-  <%#= link_to "Back to list", activities_path, class: 'btn btn-warning' %>
 </div>
+
+<div class="container">
+  <h4>Buy a ticket for <%= @activity.sku %></h4>
+  <%= form_tag activity_payments_path(@activity) do %>
+    <%= hidden_field_tag 'activity_id', @activity.id %>
+    <article>
+      <label class="amount">
+        <span>Amount: <%= humanized_money_with_symbol(@activity.price) %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="Total: $<%= @activity.price %>"
+      data-email="<%= current_user.email %>"
+      data-description="Order <%= @activity.sku %>"
+      data-amount="<%= @activity.price_cents %>"
+      data-currency="<%= @activity.price.currency %>"></script>
+  <% end %>
+</div>
+
