@@ -1,46 +1,18 @@
 <div class="container">
   <div class="d-flex justify-content-around align-items-center mt-3">
     <div class="place-details-text">
-      <h3 style="color: #FFA605; font-weight: bold"><%= @place.name %></h3>
-      <p><strong>Location</strong> <%= @place.location %></p>
-      <p><strong>Category</strong> <%= @place.category %></p>
-      <% @place.dogginess_scale.times do %>
-        <%= inline_svg "dogginess_scale.svg", class: 'dogginess', width: 40, height: 40 %>
-      <% end %>
+      <h2 style="color: #FFA605; font-weight: bold"><%= @place.name %></h2>
+      <p><strong>Location: </strong> <%= @place.location %></p>
+      <p><strong>Category: </strong> <%= @place.category %></p>
+      <div class="save-action">
+      <i class="fas fa-paw" style="color: #FE570F;font-size: 24px; transform: rotate(-45deg)"></i>
+      <!-- <p style="margin:0">Save</p> -->
+    </div>
     </div>
     <div class="place-details-map"></div>
   </div>
-
-  <div class="place-actions border d-flex justify-content-between align-items-center">
-    <div class="text-center">
-        <ul style="padding:0;margin:0">
-          <li style="display: inline">
-            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
-          </li>
-          <li style="display: inline">
-            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
-          </li>
-          <li style="display: inline">
-            <i class="fas fa-bone" style="color: #FE570F; font-size: 20px; transform: rotate(-45deg);"></i>
-          </li>
-        </ul>
-        <p style="margin:0">Rating</p>
-    </div>
-
-    <div class="save-action">
-      <i class="fas fa-paw" style="color: #FE570F;font-size: 24px; transform: rotate(-45deg)"></i>
-      <p style="margin:0">Save</p>
-    </div>
-
-    <div class="direction-action text-center">
-      <i class="fas fa-directions" style="color: #FE570F;font-size: 24px;"></i>
-      <p style="margin:0">Directions</p>
-    </div>
-  </div>
-
   <div class="place-description mt-3">
-    <!-- <h3 class="text-center" style="color: #FFA605; font-weight: bold">Description</h3> -->
-    <p class="text-justify">
+    <p class="text-center py-4">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, recusandae magnam dolorem doloribus tenetur unde est, eaque dolore aliquam aliquid porro eum. At aliquid labore iste ipsam, quos quam, impedit.
     </p>
   </div>
@@ -48,13 +20,9 @@
 
   <div class="card-reviews">
     <div class="container">
-      <div class="place-reviews">
-        <h2 style="color: orange">Reviews</h2>
-       <!--  <p id="new_review" class="text-center" style="color: orange; font-size: 20px; cursor: pointer">
-                <i class="fas fa-pen">&nbsp;</i>Submit a review
-              </p> -->
-        <!-- <p class="review-title text-center">Reviews</p>
-        <% @place.place_reviews.each do |r| %> -->
+      <div class="place-reviews py-2">
+        <h3 style="color: orange">Reviews</h3>
+        <% @place.place_reviews.each do |r| %>
           <ul class="list-group">
             <li class="list-group-item review-content">
               <div class="review-image text-center">
@@ -79,23 +47,24 @@
             </li>
           </ul>
         <% end %>
+
         <% if @place.user != current_user && PlaceReview.find_by(place: @place, user: current_user).nil? %>
-          <div class="my-3">
+          <p id="new_review" class="pt-3 text-center" style="color: orange; font-size: 20px; cursor: pointer">
+                <i class="fas fa-pen">&nbsp;</i>Submit a review
+          </p>
+
+          <div class="my-3 place-review-form hide-form">
             <%= render 'place_reviews/form' %>
           </div>
         <% end %>
       </div>
     </div>
-
-    <p id="new_review" class="text-center" style="color: orange; font-size: 20px; cursor: pointer">
-          <i class="fas fa-pen">&nbsp;</i>Submit a review
-    </p>
-
   </div>
 </div>
 
+<div class="container">
   <div class="place-photos">
-    <h2 style="color: orange">Photos</h2>
+    <h3 style="color: orange">Photos</h3>
 
     <div class="row justify-content-center">
       <% @place.place_photos.each do |p| %>
@@ -104,8 +73,11 @@
         </div>
       <% end %>
 
-      <p class="text-justify">
-        Want to feature your creature? Upload a photo of your pet at <strong><%= @place.name %></strong> You can also share by using the hashtag #retrievr on Facebook, Twitter or Instagram.
+      <p class="text-center py-4" style="display: block;">
+        Want to feature your creature? Upload a photo of your pet at <strong><%= @place.name %></strong>.&nbsp;You can also share by using the hashtag #retrievr on
+        <a href="#">Facebook</a>,&nbsp;
+        <a href="#">Twitter</a>,&nbsp; or ,&nbsp;
+        <a href="#">Instagram</a>
       </p>
 
       <div>
@@ -113,10 +85,11 @@
           <li>
             <i class="fas fa-arrow-circle-up" style="color: orange"></i>
           </li>
-          <li style="color: orange; font-weight: bold">Upload picture</li>
+          <li style="color: orange; font-weight: bold"> Upload picture</li>
         </ul>
       </div>
     </div>
   </div>
+</div>
 
 <%#= link_to "Back to list", places_path, class: 'btn btn-warning' %>
