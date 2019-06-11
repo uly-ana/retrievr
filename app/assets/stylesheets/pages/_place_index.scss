@@ -1,3 +1,19 @@
+.btn-outline-warning {
+  background-color: #FFA605;
+  color: white;
+  border-radius: 1px;
+  text-decoration: none;
+  opacity: 1.0;
+  box-shadow: none;
+}
+
+.btn {
+  padding: 12px;
+  margin-bottom: 30px;
+  // position: absolute;
+  max-width: 300px;
+}
+
 .main-container {
   display: flex;
 }
@@ -54,3 +70,4 @@
     }
   }
 }
+
