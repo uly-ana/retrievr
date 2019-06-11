@@ -30,6 +30,11 @@
         <% else %>
           <p><%= user.name %> has no bio yet</p>
         <% end %>
+        <div class="acc-settings">
+          <%= link_to "Account credentials", edit_user_registration_path, class: 'user-btn' %>
+
+          <%= link_to "Delete account", user_registration_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'user-btn' %>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +47,7 @@
         <div class="each-dog">
           <div class="dog-avatar">
             <% if dog.photo.present? %>
-              <%= cl_image_tag dog.photo, alt: dog.name, width: 300, height: 250, crop: :fill %>
+              <%= cl_image_path dog.photo, alt: dog.name, width: 300, height: 250, crop: :fill %>
             <% else %>
               <%= image_tag "https://meredith.nhcrafts.org/wp-content/uploads/dog-placeholder.jpg", alt: "dog-placeholder", width: 300, height: 250 %>
             <% end %>
@@ -51,7 +56,7 @@
           <%= dog.my_story %>
           <br>
           <div class="dog-settings">
-             <%= link_to edit_user_dog_path(dog) do%><i class="fas fa-pencil-alt"></i><% end %>
+             <%= link_to edit_user_dog_path(dog) do %><i class="fas fa-pencil-alt"></i><% end %>
              <%= link_to destroy_dogs_path(dog), method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt"></i><% end %>
           </div>
         </div>
@@ -59,20 +64,22 @@
     </div>
   </div>
 
-  <div class="user-restaurants-favourites">
+  <div class="user-favorites">
     <h2 class="text-center">Favorites</h2>
       <% if @user.favorites.present? %>
-        <% @user.favorites.each do |favorite| %>
-           <p><strong><%= favorite.activity.name %></strong></p>
-        <% end %>
+        <div class="favorite-user-activity d-flex">
+          <% @user.favorites.each do |favorite| %>
+            <%= link_to activity_path(favorite.activity) do %>
+              <div class="favorite-card d-flex">
+                <%= cl_image_tag favorite.activity.activity_photos.first.photo, width: 271, height: 165, crop: :fill %>
+                <p ><strong><%= favorite.activity.name %></strong></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% else %>
         <p class="text-center">No favorite places or events added yet</p>
       <% end %>
   </div>
 
-  <div class="acc-settings">
-    <%= link_to "Account credentials", edit_user_registration_path, class: 'user-btn' %>
-
-    <%= link_to "Delete account", user_registration_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'user-btn' %>
-  </div>
 </div>

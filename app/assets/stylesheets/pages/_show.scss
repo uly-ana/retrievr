@@ -139,6 +139,29 @@
   padding: 30px 0;
 }
 
+.favorite-user-activity {
+  margin: 40px 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  &:hover {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.favorite-card {
+  margin: 20px;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  p {
+    color: #454545;
+    padding-top: 20px;
+    font-size: 20px;
+  }
+}
+
 
 
 
