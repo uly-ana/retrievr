@@ -1,8 +1,8 @@
 <div class="container">
-  <h1 class="text-center" style="color: orange">Dog friendly places worldwide</h1>
+  <h1 class="text-center" style="color: orange">The Most Dog-Friendly Restaurant</h1>
 
   <p class="text-center" style="line-height: 2em;">
-    Don't leave your bestfriend in the hotel room when it's time for dinner. A dog's gotta eat too! And no matter where you're headed, we can point you towards a great sidewalk cafe, brew pub, coffee shop, or other eatery that will welcome <i>Your best friend</i> to join you at an outdoor table. <br><strong style="color: orange">Bone appetit!</strong>
+    Don't leave your bestfriend at home when it's time for dinner. A dog's gotta eat too! And no matter where you're headed, we can point you towards a great sidewalk cafe, brew pub, coffee shop, or other eatery that will welcome <i>Your best friend</i> to join you at an outdoor table. <!-- <br><strong style="color: orange">Bone appetit!</strong> -->
   </p>
 
   <div class="main-container">
@@ -59,9 +59,15 @@
   </div>
 </div>
 
-<%= link_to new_place_path do %>
-  <i class="fas fa-plus-circle">Add a new place</i>
-<% end %>
+
+
+      <%= link_to new_place_path do %>
+  <!-- <i class="fas fa-plus-circle">  Add a new place</i> --> <button type="button" class="      btn btn-outline-warning"> Add place</button>
+    <% end %>
+
+
+
+<%= render 'shared/footer' %>
 
 <%# @places.each do |place| %>
   <!-- <ul class="list-group">
