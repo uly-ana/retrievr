@@ -1,0 +1,28 @@
+<% if @user.present? %>
+  <% if @activity.price != 0 %>
+    <%= form_tag activity_payments_path(@activity) do %>
+      <%= hidden_field_tag 'activity_id', @activity.id %>
+      <article>
+        <label class="amount">
+          <span>Amount: <%= humanized_money_with_symbol(@activity.price) %></span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Total: $<%= @activity.price %>"
+        data-email="<%= current_user.email %>"
+        data-description="Order <%= @activity.sku %>"
+        data-amount="<%= @activity.price_cents %>"
+        data-currency="<%= @activity.price.currency %>"></script>
+    <% end %>
+  <% else %>
+    <!-- Handle free stuff here -->
+    <%#= link_to 'Get ticket!', orders_path(activity: @activity), method: :post %>
+    
+  <% end %>
+<% else %>
+  <p>
+    Please <%= link_to 'login', new_user_session_path %> / <%= link_to 'sign up', new_user_registration_path %> to purchase a ticket
+  </p>
+<% end %>
