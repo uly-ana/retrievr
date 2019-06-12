@@ -1,0 +1,5 @@
+meta_product_name: "Retrievr"
+meta_title: "Retrievr - Explore places to stay, play, and eat with your dog"
+meta_description: "Retrievr is the leading pet travel and lifestyle brand. Our website and mobile apps connect millions of pet owners around the globe with more than 250,000 pet-friendly places. Users can be planning an epic dog-friendly road trip is a breeze using Retrievr’s database of pup-approved restaurants, dog parks, hiking trails and shopping destinations. Pet parents can rest easy knowing that our directory of licensed veterinarians, sitters, and groomers is just a tap away."
+meta_image: "bg.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
