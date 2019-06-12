@@ -1,13 +1,13 @@
 .banner {
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), asset-url('bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('bg.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   h1 {
     text-align: center;
     padding-top: 30vh;
-    color: #FFA605;
+    color: #FF5959;
     font-size: 72px;
     font-family: $title-font;
     font-weight: bold;

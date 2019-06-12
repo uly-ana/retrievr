@@ -14,9 +14,9 @@
 .main-links {
   li {
     a {
-      color: orange !important;
+      color: #FF5959 !important;
       &:hover {
-        color: #FFA605;
+        color: #FF5959;
       }
     }
   }
@@ -36,18 +36,18 @@
 }
 
 .secondary-links {
-  color: #FFA605;
+  color: #FF5959;
 }
 
 .nav-item {
   &:hover {
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid #FF5959;
   }
 }
 
 .non-login:nth-of-type(1) {
   a:hover {
-    color: #ce804a;
+    color: #FF5959;
   }
 }
 
