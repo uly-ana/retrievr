@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_022156) do
+ActiveRecord::Schema.define(version: 2019_06_12_092343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_022156) do
   create_table "activities", force: :cascade do |t|
     t.string "address"
     t.text "description"
-    t.date "date"
     t.float "latitude"
     t.float "longitude"
     t.string "category"
@@ -30,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_022156) do
     t.bigint "owner_id"
     t.string "name"
     t.string "sku"
+    t.string "dog_size"
+    t.datetime "time"
     t.index ["owner_id"], name: "index_activities_on_owner_id"
     t.index ["place_id"], name: "index_activities_on_place_id"
   end
