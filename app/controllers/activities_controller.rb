@@ -39,8 +39,9 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.owner = @user
-    @place = Place.find(params[:activity][:place])
-    @activity.place = @place
+    @activity_photos = @activity.activity_photos.build
+    # @place = Place.find(params[:activity][:place])
+    # @activity.place = @place
     authorize @activity
 
     if @activity.save
