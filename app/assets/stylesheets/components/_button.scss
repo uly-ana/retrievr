@@ -26,3 +26,11 @@
 button:focus {
   outline: none;
 }
+
+.back-act {
+  color: #ffa505;
+  &:hover {
+  	color: #d68902;
+  	text-decoration: none;
+  }
+}
