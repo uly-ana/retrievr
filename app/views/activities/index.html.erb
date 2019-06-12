@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="filter-grid my-2">
-    <h2>Events</h2>
-    <div class="filter">
-      <p>Filter</p>
-      <i class="fas fa-arrow-down dropdown-filter"></i>
+<div class="activity-body">
+  <div class="container">
+    <div class="filter-grid my-2">
+      <h2>Events</h2>
+      <div class="filter">
+        <p>Filter</p>
+        <i class="fas fa-arrow-down dropdown-filter"></i>
+      </div>
     </div>
+
+    <%= render 'filter' %>
+
+    <br>
+
+    <%= render 'cards' %>
   </div>
-
-  <%= render 'filter' %>
-
-  <br>
-
-  <%= render 'cards' %>
 </div>
