@@ -142,9 +142,7 @@
 
 .each-dog {
   margin-bottom: 20px;
-  border: 0.5px solid #CFCFCF;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   border-bottom-left-radius: 4px;
@@ -155,7 +153,7 @@
 }
 
 .dog-description {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .dog-settings {
@@ -207,7 +205,7 @@
 
 .favorite-user-activity {
   margin: 40px 0;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   &:hover {
     a {
@@ -217,9 +215,9 @@
 }
 
 .favorite-card {
-  margin: 20px;
+  padding-bottom: 10px;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
   p {
     color: #454545;

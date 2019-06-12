@@ -66,10 +66,10 @@
                     <%= image_tag "https://meredith.nhcrafts.org/wp-content/uploads/dog-placeholder.jpg", alt: "dog-placeholder", width: 250, height: 250 %>
                   <% end %>
                 </div>
-                <div class="dog-desription">
+                <div class="dog-description">
                   <h5><strong><%= dog.name %></strong></h5>
-                  <%= dog.my_story %>
-                  <br>
+                  <p><%= dog.my_story %></p>
+
                   <div class="dog-settings">
                      <%= link_to edit_user_dog_path(dog) do %><i class="fas fa-pencil-alt"></i><% end %>
                      <%= link_to destroy_dogs_path(dog), method: :delete, data: { confirm: 'Are you sure?' } do %><i class="far fa-trash-alt"></i><% end %>
