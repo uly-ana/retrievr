@@ -1,18 +1,18 @@
 // Specific CSS for your home-page
 // Landing page
-.searchbar {
-  background-color: transparent;
-  border: 1px solid #454545;
-  border-radius: 4px;
-  text-align: center;
-  color: #454545;
-}
+// .searchbar {
+//   background-color: transparent;
+//   border: 1px solid #454545;
+//   border-radius: 4px;
+//   text-align: center;
+//   color: #454545;
+// }
 
 .upcoming-events {
   padding: 60px 0;
   h2 {
     padding: 20px 0;
-    color: #FFA605;
+    color: #FF5959;
     margin-bottom: 15px;
   }
   a {
@@ -21,17 +21,17 @@
 }
 
 .event-container {
-  background-color: #FFFAF7;
+  background-color: #FBFBFB;
 }
 
 .upcoming-events-btn {
   margin-top: 40px ;
   padding: 10px 15px;
-  border: 1px solid #FFA605;
+  border: 1px solid #FF5959;
   border-radius: 4px;
-  color: #F9A468;
+  color: #FF5959;
   &:hover {
-    background-color: #FFA605;
+    background-color: #FF5959;
     color: white;
     transition: 0.3s;
   }
@@ -74,7 +74,7 @@
   padding: 60px 0;
   h2 {
     padding: 20px 0;
-    color: #FFA605;
+    color: #FF5959;
     margin-bottom: 15px;
   }
   a {
@@ -87,6 +87,15 @@
     h3 {
       font-size: 20px;
     }
+  }
+}
+
+.card-trip-infos {
+  h4 {
+    color: #454545;
+  }
+  p {
+    color: #454545;
   }
 }
 
