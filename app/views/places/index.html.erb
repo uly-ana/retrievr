@@ -10,35 +10,17 @@
     <div class="place-container">
       <% @places.each do |place| %>
         <%= link_to place_path(place) do %>
-          <div class="places">
-            <% if place.place_photos.present? %>
-              <%= cl_image_tag place.place_photos.first.photo, width: 271, height: 165, crop: :fill %>
-            <% else %>
-              <%= image_tag "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=660&q=80", alt: "Basic-dog", width: 271, height: 165 %>
-            <% end %>
-            <ul class="place-rating">
-              <% rand(1..5).times do %>
-                <li>
-                  <%= image_tag "bone.svg", alt: "rating", width: 24, height: 24 %>
-                </li>
-              <% end %>
-            </ul>
-
-            <div class="place-detail">
-              <p style="margin: 0; color: #127E8C"><%= place.name %></p>
-              <p style="margin: 0; color: #127E8C"><%= place.location %></p>
-            </div>
-
-            <div class="place-save">
-              <%= button_to place_favorites_path(place), remote: true, class: 'place-fave' do %>
-                <%= image_tag "save.svg", alt: "save", width: 36, height: 36, class: 'save' %>
-                <p style="margin: 0; color: #ff0000">Save</p>
-              <% end %>
+          <div class="card-trip card-plc mb-3">
+            <%= cl_image_tag place.place_photos.sample.photo, crop: :fill %>
+            <div class="card-trip-infos">
+              <h4><%= place.name %></h4>
+              <p><%= place.category %></p>
             </div>
           </div>
         <% end %>
       <% end %>
     </div>
+
 
     <div class="actions">
       <div class="searchbar">
@@ -58,7 +40,9 @@
   </div>
 </div>
 
-<%= link_to new_place_path do %>
+<div class="text-center">
+  <%= link_to new_place_path do %>
   <button type="button" class="btn btn-warning">Add Place</button>
 <% end %>
+</div>
 

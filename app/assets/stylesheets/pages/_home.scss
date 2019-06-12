@@ -1,24 +1,5 @@
 // Specific CSS for your home-page
 // Landing page
-.banner {
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), asset-url('brandon.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
-  h1 {
-    text-align: center;
-    padding-top: 30vh;
-    color: #FFA605;
-    font-size: 72px;
-    font-family: 'Roboto';
-  }
-  h3 {
-    color: white;
-    text-align: center;
-  }
-}
-
 .searchbar {
   background-color: transparent;
   border: 1px solid #454545;
