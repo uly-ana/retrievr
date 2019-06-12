@@ -109,7 +109,6 @@
   margin-top: 30px !important;
   width: 450px;
   margin: auto;
-  // border-radius: 3px;
   color: #f48233;
   h2 {
     text-align: center;
@@ -131,12 +130,14 @@ input, select, textarea {
   }
 }
 
-#new_user {
- width: 900px;
-}
-
 .reset {
   &:hover {
     color: grey;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .form-login {
+    width: 30%;
   }
 }
