@@ -1,43 +1,137 @@
 // Activities#show
-.activity-grid {
-  display: grid;
-  grid-template-rows: repeat(4, auto);
+
+.activity-container {
+  overflow: hidden;
+  background-image: linear-gradient(#FFFFFF, #FFFAF7);
+  z-index: -1;
   margin-top: 40px;
 }
 
-.activity-about, .activity-description {
-  padding-bottom: 20px;
+.activity-grid {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  margin-top: 20px;
+}
+
+.activity-description {
+  padding: 90px 0;
   font-size: 20px;
 }
 
 .activity-details {
   flex-direcrion: row;
   align-items: center;
-  margin: 40px 0;
+  margin-bottom: 40px;
+  p {
+    font-size: 20px;
+    font-weight: lighter;
+  }
+}
+
+.btn-activity {
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 1px solid orange;
+  border-radius: 4px;
+  color: orange;
+  font-weight: lighter;
+  background-color: transparent;
+  &:hover {
+    background-color: orange;
+    color: #FFF7F1;
+    transition: 0.3s;
+  }
 }
 
 .activity-details-category {
-  padding-right: 150px;
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between
+  }
 }
 
 .activity-details-input {
-  padding-right: 250px;
+  padding-right: 150px;
+  font-weight: lighter;
 }
 
 .about-content {
   margin-bottom: 16px;
+  h1 {
+    margin: 20px 0;
+  }
+  img {
+    border-radius: 4px;
+  }
+}
+
+.activity-photo {
+    width: 100%;
+    object-fit: cover;
 }
 
 .act-photos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  width: 100%;
   img {
-    border-radius: 16px;
+    border-radius: 4px;
   }
 }
+
+.activity-reviews {
+  margin-top: 100px;
+}
+
+
+
+.btn-photo {
+  font-size: 14px;
+  padding: 10px 15px;
+  border: 1px solid orange;
+  border-radius: 4px;
+  color: orange;
+  font-weight: lighter;
+  background-color: transparent;
+  &:hover {
+    background-color: orange;
+    color: #FFF7F1;
+    transition: 0.3s;
+  }
+}
+
+.activity-photo-upload {
+  margin-top: 40px;
+}
+
+.review-form {
+  margin-top: 50px;
+}
+
+.activity-details-btn{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.show-page-pic {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.act-details {
+  padding: 20px;
+}
+
+.list-group {
+  margin-bottom: 40px;
+}
+
+.background-photo {
+  background-color: #FFFAF7;
+  padding-bottom: 40px;
+}
+
+// Place#show ##################################################################
 
 .dogginess {
   filter: invert(67%) sepia(20%) saturate(4663%) hue-rotate(0deg) brightness(103%) contrast(106%);
@@ -54,8 +148,8 @@
   margin-top: 32px;
   padding: 12px 24px;
   box-shadow:
-    inset 0px 11px 8px -10px #CCC,
-    inset 0px -11px 8px -10px #CCC;
+  inset 0px 11px 8px -10px #CCC,
+  inset 0px -11px 8px -10px #CCC;
 }
 
 .place-reviews, .place-photos {
@@ -69,6 +163,8 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
   }
 }
+
+// Profile#show ################################################################
 
 .profile-banner {
   width: 100%;
@@ -176,3 +272,5 @@
     font-size: 20px;
   }
 }
+
+
