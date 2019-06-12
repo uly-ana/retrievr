@@ -16,8 +16,16 @@
       <div class="activity-card d-flex justify-content-around ">
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
-            <div class="each-event d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(250, 250, 250, 0.5), rgba(250, 250, 250, 0.5)), url('<%= cl_image_path activity.activity_photos.sample.photo, crop: :fill %>');" >
-              <p><%= activity.address %></p>
+            <div class="card-trip">
+              <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
+              <div class="card-trip-infos">
+                <h4><%= activity.name %></h4>
+                <% if activity.price == 0 %>
+                  <p>FREE</p>
+                <% else %>
+                  <p><%= humanized_money_with_symbol(activity.price) %></p>
+                <% end %>
+              </div>
             </div>
           <% end %>
         <% end %>
@@ -41,7 +49,7 @@
           <div style="margin-bottom: 30px;">
             <%= link_to place_path(place) do %>
               <div class="place-card d-flex" style="justify-content: left; align-items: center; flex-direction: column;">
-                <div class="place-card-img" style="width: 200px; height: 200px; background-image: linear-gradient(rgba(250, 250, 250, 0.5), rgba(250, 250, 250, 0.5)), url('<%= cl_image_path place.place_photos.sample.photo, crop: :fill %>'); border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                <div class="place-card-img" style="width: 200px; height: 200px; background-image: url('<%= cl_image_path place.place_photos.sample.photo, crop: :fill %>'); border-top-left-radius: 4px; border-top-right-radius: 4px;">
                 </div>
                 <div class="place-card-info" style="padding-top: 10px;">
                   <h3><%= place.category %></h3>
