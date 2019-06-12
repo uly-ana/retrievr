@@ -10,7 +10,7 @@
     <div class="upcoming-events">
       <h2>Upcoming events</h2>
 
-      <% @activities = Activity.order(:date).first(2) %>
+      <% @activities = Activity.order(:time).first(2) %>
 
       <div class="activity-card d-flex justify-content-around ">
         <% @activities.each do |activity| %>
