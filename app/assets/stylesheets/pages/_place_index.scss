@@ -7,11 +7,19 @@
   box-shadow: none;
 }
 
-.btn {
-  padding: 12px;
-  margin-bottom: 30px;
-  // position: absolute;
-  max-width: 300px;
+.btn-place {
+  padding: 10px 20px;
+  margin: 30px 0;
+  color: #FF5959;
+  border: 1px solid #FF5959;
+  border-radius: 4px;
+  background-color: transparent;
+  &:hover {
+    color: white;
+    background-color: #FF5959;
+    text-decoration: none;
+    transition: 0.3s;
+  }
 }
 
 .main-container {
