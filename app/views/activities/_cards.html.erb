@@ -1,34 +1,17 @@
-<% @activities.each do |activity| %>
-  <%= link_to activity_path(activity), class: 'activity-link' do %>
-    <div class="card" data-activity-id="<%= activity.id %>" style="background-image: url('<%= cl_image_path activity.activity_photos.first.photo, crop: :fill %>')" >
-      <div class="card-content">
-        <div class="card-name">
-          <h3><%= activity.name %></h3>
-        </div>
-
-        <div class="card-description">
-          <p class="act-desc">
-            <%= activity.description %>
-          </p>
-          <p>
-            By: <%= activity.owner.first_name %> <%= activity.owner.last_name %>
-          </p>
-        </div>
-
-        <div class="card-favorite">
-          <% if current_user.present? %>
-            <% if Favorite.find_by(activity_id: activity.id, user_id: current_user.id) %>
-              <%= render 'favorites/delete', activity: activity %>
-            <% else %>
-              <%= render 'favorites/create', activity: activity %>
-            <% end %>
+<div class="row">
+  <% @activities.each do |activity| %>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
+      <%= link_to activity_path(activity), class: 'activity-link' do %>
+        <div class="card-trip card-act" data-activity-id="<%= activity.id %>">
+          <% if activity.activity_photos.sample.photo.present? %>
+            <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
           <% end %>
+          <div class="card-trip-infos">
+            <h4><%= activity.name %></h4>
+            <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
+          </div>
         </div>
-
-        <div class="card-action">
-          <i class="far fa-arrow-alt-circle-right"></i>
-        </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>
