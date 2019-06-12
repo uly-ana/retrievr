@@ -23,7 +23,7 @@
       <div class="activity-details-input">
         <p><%= @activity.date %></p>
         <p><%= humanized_money_with_symbol(@activity.price) %></p>
-        <p><%= @activity.place.name %></p>
+        <p><%= @activity.address %></p>
         <p><%= @activity.category %></p>
         <p><%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
       </div>
@@ -95,7 +95,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container text-center">
   <h4>Buy a ticket for <%= @activity.sku %></h4>
   <%= form_tag activity_payments_path(@activity) do %>
     <%= hidden_field_tag 'activity_id', @activity.id %>

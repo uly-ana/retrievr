@@ -102,7 +102,9 @@
 .form-event {
   background: white;
   padding: 10px 20px;
-  margin-top: 30px;
+  margin-top: 30px !important;
+  width: 450px;
+  margin: auto;
   // border-radius: 3px;
   color: #f48233;
   h2 {
@@ -112,3 +114,15 @@
   }
 }
 
+input, select, textarea {
+  border-radius: 5px !important;
+}
+
+.field {
+  label {
+    display: none;
+  }
+  input {
+    border-radius: 0 !important;
+  }
+}

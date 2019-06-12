@@ -22,7 +22,6 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @place_review = PlaceReview.new
-    # raise
     authorize @place
   end
 
@@ -36,14 +35,16 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @user = current_user
     @place.user = @user
+    @place_photos = @place.place_photos.build
     authorize @place
 
     if @place.save
       params[:place][:photo].each do |p|
         @place_photo = @place.place_photos.create!(photo: p, place_id: @place.id)
       end
-
       redirect_to place_path(@place)
+    else
+      render :new
     end
   end
 

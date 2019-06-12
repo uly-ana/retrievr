@@ -5,7 +5,7 @@
   <div class="col-sm-12 col-md-12 col-lg-12">
     <%= f.input :description, placeholder: 'minimum: 20 characters' %>
   </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
+  <div class="col-sm-6 col-md-12 col-lg-12">
     <%= f.input :address %>
   </div>
   <div class="col-sm-6 col-md-12 col-lg-6">
@@ -20,10 +20,10 @@
   <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :limit %>
   </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :place, collection: Place.all %>
-  </div>
-    <div class="col-sm-6 col-md-12 col-lg-6 mb-2" id="upload-btn-wrapper">
+  <!-- <div class="col-sm-6 col-md-12 col-lg-6">
+    <%#= f.input :place, collection: Place.all %>
+  </div> -->
+    <div class="col-sm-6 col-md-12 col-lg-6" id="upload-btn-wrapper">
     <%= f.fields_for :activity_photos do |p| %>
       <label class="field">
         <%= f.file_field :photo, multiple: true %>
