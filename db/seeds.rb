@@ -72,33 +72,40 @@ dog_stories = ['Yolanda Sevogia\'s neighbor, Stacey Savige, knocked on her door 
 # file_url = 'https://docs.google.com/spreadsheets/d/10iK0Cju6H6VWgntqRX6Yd9y8mDPBVNfxMabX9SZgL1I/edit?usp=sharing'
 
 # file = 'seed.csv'
-# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
 # p csv_text
 
-# CSV.foreach(('../lib/seeds/seed.csv'), csv_options) do |row|
-#   # puts "#{row['name']} | #{row['description']} | #{row['address']} | #{row['date']} | #{row['price']} | #{row['category']} | #{row['limit of guests']} | #{row['dog_size']}"
-#   name = row[1]
-#   desc = row[2]
-#   address = row[3]
-#   date = row[4]
-#   price = row[5]
-#   cat = row[6]
-#   limit = row[7]
-#   dog_size = row[9]
-#   Activity.create!(
-#     name: name,
-#     description: desc,
-#     address: address,
-#     time: date,
-#     price: price,
-#     category: cat,
-#     limit: limit,
-#     dog_size: dog_size,
-#     owner_id: rand(1..10)
-#   )
-# end
+User.create!(email: 'rayhan@gmail.com', first_name: 'R', last_name: 'W', password: '121212', bio: 'abcdefghij', username: 'rayhanw')
+
+CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
+  # puts "#{row['name']} | #{row['description']} | #{row['address']} | #{row['date']} | #{row['price']} | #{row['category']} | #{row['limit of guests']} | #{row['dog_size']}"
+  name = row[1]
+  desc = row[2]
+  address = row[3]
+  dates = row[4]
+  price = row[5]
+  cat = row[6]
+  limit = row[7]
+  dog_size = row[9]
+
+  act = Activity.create!(
+    name: name,
+    description: desc,
+    address: address,
+    time: dates,
+    price: price,
+    category: cat,
+    limit: limit,
+    dog_size: dog_size,
+    owner: User.first
+  )
+  ActivityPhoto.create!(
+    remote_photo_url: 'https://ichef.bbci.co.uk/news/660/cpsprodpb/16BB/production/_106591850_untitleddesign-3.jpg',
+    activity: act
+    )
+end
 
 # puts '------------'
 
