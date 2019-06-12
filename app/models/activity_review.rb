@@ -4,5 +4,5 @@ class ActivityReview < ApplicationRecord
 
   validates :rating, presence: true, inclusion: { in: 0..5 }
   validates :content, length: { minimum: 10 }
-  validates :user_id, presence: true, uniqueness: true
+  validates :user_id, presence: true
 end

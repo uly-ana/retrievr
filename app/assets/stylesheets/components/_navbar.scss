@@ -16,7 +16,7 @@
     a {
       color: orange !important;
       &:hover {
-        color: #F9A468;
+        color: #FFA605;
       }
     }
   }
@@ -36,7 +36,7 @@
 }
 
 .secondary-links {
-  color: #F9A468;
+  color: #FFA605;
 }
 
 .nav-item {
@@ -63,14 +63,14 @@
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 992px) {
   .login-link {
     margin-right: 3rem;
   }
 }
 
 .navbar.bg-light {
-    background-color: white !important;
-    justify-content: space-between;
-    border: 1px solid rgb(235,235,235);
+  background-color: #ffe79a;
+  justify-content: space-between;
+  border: 1px solid #ebebeb;
 }
