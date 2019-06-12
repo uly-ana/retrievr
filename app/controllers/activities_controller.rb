@@ -25,6 +25,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @activity = Activity.find(params[:id])
     authorize @activity
     @activity_review = ActivityReview.new
@@ -33,6 +34,7 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @activity_photos = @activity.activity_photos.build
+    @dog_size = ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds']
     authorize @activity
   end
 

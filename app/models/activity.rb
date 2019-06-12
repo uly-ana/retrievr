@@ -15,10 +15,11 @@ class Activity < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true, length: { minimum: 20 }
-  validates :date, presence: true
+  # validates :date, presence: true
   validates :category, presence: true
   validates :limit, presence: true
-  validate :not_blank_date
+  validates :dog_size, inclusion: { in: ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds'] }
+  # validate :not_blank_date
 
   private
 

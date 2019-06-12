@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row cards">
   <% @activities.each do |activity| %>
     <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
       <%= link_to activity_path(activity), class: 'activity-link' do %>
         <div class="card-trip card-act" data-activity-id="<%= activity.id %>">
-          <% if activity.activity_photos.sample.photo.present? %>
+          <% if activity.activity_photos.present? %>
             <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
           <% end %>
           <div class="card-trip-infos">

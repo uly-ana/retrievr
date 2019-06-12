@@ -8,22 +8,22 @@
   <div class="col-sm-6 col-md-12 col-lg-12">
     <%= f.input :address %>
   </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :date, as: :date, html5: true %>
+  <div class="col-sm-6 col-md-12 col-lg-12">
+    <%= f.input :time %>
+  </div>
+  <div class="col-sm-6 col-md-12 col-lg-12">
+    <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
   </div>
   <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :price, placeholder: '$00.00' %>
   </div>
   <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
     <%= f.input :limit %>
   </div>
-  <!-- <div class="col-sm-6 col-md-12 col-lg-6">
-    <%#= f.input :place, collection: Place.all %>
-  </div> -->
-    <div class="col-sm-6 col-md-12 col-lg-6" id="upload-btn-wrapper">
+  <div class="col-sm-6 col-md-12 col-lg-12">
+    <%= f.input :dog_size, collection: @dog_size %>
+  </div>
+    <div class="col-sm-6 col-md-12 col-lg-12 my-2" id="upload-btn-wrapper">
     <%= f.fields_for :activity_photos do |p| %>
       <label class="field">
         <%= f.file_field :photo, multiple: true %>
