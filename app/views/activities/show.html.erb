@@ -6,17 +6,16 @@
       <div class="activity-details">
         <div class="act-details">
           <div class="activity-details-category">
-            <div class=""><p><strong>Date:</strong></p><p> <%= @activity.date %></p></div>
-            <div class=""><p><strong>Price:</strong></p><p> <%= humanized_money_with_symbol(@activity.price) %></p></div>
-            <div class=""><p><strong>Location:</strong></p><p> <%= @activity.address %></p></div>
-            <div class=""><p><strong>Category:</strong></p><p> <%= @activity.category %></p></div>
-            <div class=""><p><strong>Creator:</strong></p><p> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p></div>
+            <div><p><strong>Date:</strong></p><p> <%= @activity.date %></p></div>
+            <div><p><strong>Price:</strong></p><p id="price"> <%= humanized_money_with_symbol(@activity.price) %></p></div>
+            <div><p><strong>Location:</strong></p><p> <%= @activity.address %></p></div>
+            <div><p><strong>Category:</strong></p><p> <%= @activity.category %></p></div>
+            <div><p><strong>Creator:</strong></p><p> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p></div>
+            <br>
           </div>
-          <div class="activity-details-btn">
-            <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'activity_id', @activity.id %>
-            <%= submit_tag 'Place Order', data: { confirm:"Are you sure?" }, class: 'btn-activity' %>
-            <% end %>
+          <div class="text-center">
+            <h4>Get a ticket</h4>
+            <%= render 'payments/pay' %>
           </div>
         </div>
       </div>
@@ -110,31 +109,3 @@
     <% end %>
   </div>
 </div>
-
-<div class="container text-center">
-  <% if @user.present? %>
-  <h4>Buy a ticket for <%= @activity.sku %></h4>
-    <%= form_tag activity_payments_path(@activity) do %>
-      <%= hidden_field_tag 'activity_id', @activity.id %>
-      <article>
-        <label class="amount">
-          <span>Amount: <%= humanized_money_with_symbol(@activity.price) %></span>
-        </label>
-      </article>
-
-
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-name="Total: $<%= @activity.price %>"
-        data-email="<%= current_user.email %>"
-        data-description="Order <%= @activity.sku %>"
-        data-amount="<%= @activity.price_cents %>"
-        data-currency="<%= @activity.price.currency %>"></script>
-    <% end %>
-  <% else %>
-    <p>
-      Please <%= link_to 'login', new_user_session_path %> / <%= link_to 'sign up', new_user_registration_path %> to purchase a ticket
-    </p>
-  <% end %>
-</div>
-

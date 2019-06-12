@@ -25,6 +25,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @activity = Activity.find(params[:id])
     authorize @activity
     @activity_review = ActivityReview.new
