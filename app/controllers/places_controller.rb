@@ -42,6 +42,7 @@ class PlacesController < ApplicationController
       params[:place][:photo].each do |p|
         @place_photo = @place.place_photos.create!(photo: p, place_id: @place.id)
       end
+      # raise
       redirect_to place_path(@place)
     else
       render :new
