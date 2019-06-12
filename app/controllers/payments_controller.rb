@@ -1,12 +1,9 @@
 class PaymentsController < ApplicationController
-  before_action :set_order
-
-  def new
-    # @order = Order.find(params[:order_id])
-  end
-
+  before_action :set_order, except: [:create]
 
   def create
+    activity = Activity.find(params[:activity_id])
+    @order = Order.create!(activity_id: activity.id, activity_sku: activity.sku, amount: activity.price, status: "pending", user: current_user)
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
@@ -33,5 +30,4 @@ class PaymentsController < ApplicationController
     @order = current_user.orders.where(status: 'pending').find(params[:order_id])
     authorize @order
   end
-
 end
