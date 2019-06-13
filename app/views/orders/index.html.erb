@@ -1,24 +1,24 @@
 <div class="container">
   <div class="center">
-  <div class="my-3">
-    <h4 class="text-center">My orders</h4>
-    <%= link_to 'Back to activities', activities_path, class: 'back-act' %>
-  </div>
-  <div class="card-body">
-    <% @orders.each do |order| %>
-      <div class="card-product mb-3">
-        <%= cl_image_tag order.activity.activity_photos.sample.photo %>
-        <div class="card-product-infos">
-          <h2><strong><%= order.activity.name.capitalize %></strong></h2>
-          <p><u>Order ID</u>: <%= order.activity_id %></p>
-          <p><u>Name</u>: <%= Activity.find(order.activity_id).name %></p>
-          <p><u>Description</u>: <%= Activity.find(order.activity_id).description %></p>
-          <p><u>Date</u>: <%= Activity.find(order.activity_id).time %></p>
-          <p><u> Amount</u>: <%= humanized_money_with_symbol(order.activity.price) %></p>
-          <p><u> Status</u>: <%= order.status %></p>
+    <div class="my-3">
+      <h4 class="text-center">My orders</h4>
+      <%= link_to 'Back to activities', activities_path, class: 'back-act' %>
+    </div>
+    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <% @orders.each do |order| %>
+        <div class="card-product mb-3">
+          <%= cl_image_tag order.activity.activity_photos.sample.photo, crop: :fill %>
+          <div class="card-product-infos order-desc">
+            <h2><strong><%= order.activity.name.capitalize %></strong></h2>
+            <p><u>Order ID</u>: <%= order.activity_id %></p>
+            <p><u>Name</u>: <%= Activity.find(order.activity_id).name %></p>
+            <p><u>Description</u>: <%= Activity.find(order.activity_id).description %></p>
+            <p><u>Date</u>: <%= Activity.find(order.activity_id).time %></p>
+            <p><u>Amount</u>: <%= humanized_money_with_symbol(order.activity.price) %></p>
+            <p><u>Status</u>: <%= order.status %></p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
   </div>
 </div>
