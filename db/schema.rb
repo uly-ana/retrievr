@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_06_13_035058) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "breed"
+    t.string "dog_size"
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 

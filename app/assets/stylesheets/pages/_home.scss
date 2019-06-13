@@ -21,7 +21,7 @@
 }
 
 .event-container {
-  background-color: #FBFBFB;
+  background-color: #FFF8F8;
 }
 
 .upcoming-events-btn {
@@ -68,7 +68,6 @@
   background-color: white;
 }
 
-
 .recommended-places {
   background-repeat: no-repeat;
   padding: 60px 0;
@@ -91,11 +90,25 @@
 }
 
 .card-trip-infos {
-  h4 {
+  height: 60px;
+  h5 {
     color: #454545;
+    position: absolute;
+    top: 8px;
+    left: 8px;
   }
   p {
     color: #454545;
+  }
+  .activity-time {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+  }
+  .activity-price {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
   }
 }
 

@@ -7,8 +7,13 @@
             <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
           <% end %>
           <div class="card-trip-infos">
-            <h4><%= activity.name %></h4>
-            <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
+            <h5><%= activity.name %></h5>
+            <p class="activity-time"><%= activity.time.to_s.gsub(' UTC', '') %></p>
+            <% if activity.price == 0 %>
+              <p class="activity-price">FREE</p>
+            <% else %>
+              <p class="activity-price"><%= humanized_money_with_symbol(activity.price) %></p>
+            <% end %>
           </div>
           <% if current_user %>
             <div class="card-favorite">

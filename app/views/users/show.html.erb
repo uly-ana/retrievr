@@ -49,10 +49,7 @@
 
       </div>
 
-
-
       <div class="user-addition">
-
         <div class="user-dogs">
           <h2 class="meet-friend">Meet my best friend
             <%= link_to "+", new_user_dog_path %></h2>
@@ -61,7 +58,7 @@
               <div class="each-dog">
                 <div class="dog-avatar">
                   <% if dog.photo.present? %>
-                    <%= cl_image_path dog.photo, alt: dog.name, width: 250, height: 250, crop: :fill %>
+                    <%= cl_image_tag dog.photo, alt: dog.name, width: 250, height: 250, crop: :fill %>
                   <% else %>
                     <%= image_tag "https://meredith.nhcrafts.org/wp-content/uploads/dog-placeholder.jpg", alt: "dog-placeholder", width: 250, height: 250 %>
                   <% end %>
@@ -69,6 +66,8 @@
                 <div class="dog-description">
                   <h5><strong><%= dog.name %></strong></h5>
                   <p><%= dog.my_story %></p>
+                  <p>Breed: <%= dog.breed %></p>
+                  <p>Dog Size: <%= dog.dog_size %></p>
 
                   <div class="dog-settings">
                      <%= link_to edit_user_dog_path(dog) do %><i class="fas fa-pencil-alt"></i><% end %>

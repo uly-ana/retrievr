@@ -8,8 +8,8 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     @user = current_user
-    @dog_size = ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status']
-    # @dog.user = @user
+    @dog.user = @user
+    @dog_size = ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds']
     authorize @dog
   end
 
@@ -38,8 +38,10 @@ class DogsController < ApplicationController
   def edit
     @dog_size = ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status']
     @dog = Dog.find(params[:id])
+    @dog_size = ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds']
     @user = current_user
     authorize @dog
+    # raise
   end
 
   def update
@@ -56,6 +58,6 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:photo, :name, :my_story)
+    params.require(:dog).permit(:photo, :name, :my_story, :breed, :dog_size)
   end
 end

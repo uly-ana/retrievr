@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <h1 style="color: orange; text-align: center; margin-bottom: 40px;"><%= @activity.name.capitalize %></h1>
+  <h1 style="color: #FF5959; text-align: center; margin-bottom: 40px;"><%= @activity.name.capitalize %></h1>
 
   <div class="row mt-5">
     <div class="col-md-5 px-5">
@@ -8,13 +8,13 @@
           <div class="activity-details-category">
             <div><p><strong>Date:</strong></p><p> <%= @activity.time %></p></div>
             <div><p><strong>Price:</strong></p><p id="price"> <%= humanized_money_with_symbol(@activity.price) %></p></div>
-            <div><p><strong>Location:</strong></p><p> <%= @activity.address %></p></div>
+            <div><p><strong>Location:</strong></p><p class="text-right"> <%= @activity.address %></p></div>
             <div><p><strong>Category:</strong></p><p> <%= @activity.category %></p></div>
              <div><p><strong>Category:</strong></p><p><%= @activity.dog_size %></p></div>
             <div><p><strong>Creator:</strong></p><p> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p></div>
             <br>
           </div>
-          <div class="text-center">
+          <div class="payment-act text-center">
             <h4>Get a ticket</h4>
             <%= render 'payments/pay' %>
           </div>
@@ -31,13 +31,13 @@
 
 <div class="container">
   <div class="activity-description">
-    <p><strong>Description</strong>: <%= @activity.description %></p>
+    <p><%= @activity.description %></p>
   </div>
 </div>
 
 <div class="background-photo">
   <div class="container pt-4">
-    <h1 style="color: orange; text-align: center; margin-bottom: 40px;">Photos</h1>
+    <h1 style="color: #FF5959; text-align: center; margin-bottom: 40px;">Photos</h1>
 
     <div class="row">
       <% @activity.activity_photos.each do |p| %>
@@ -51,7 +51,7 @@
 
     <div class="activity-photo-upload text-center">
       <ul class="list-inline" style="font-size: 18px; margin-top: 50px;">
-        <li style="color: orange; font-weight: bold">Upload your picture now!</li>
+        <li style="color: #FF5959; font-weight: bold">Upload your picture now!</li>
       </ul>
       <ul class="list-group">
         <li class="list-group-item">
@@ -64,7 +64,7 @@
 
 <div class="container">
   <div class="activity-reviews">
-    <h2 style="color: orange">Reviews</h2>
+    <h2 style="color: #FF5959">Reviews</h2>
     <% @activity.activity_reviews.each do |r| %>
     <ul class="list-group">
       <li class="list-group-item review-content">
@@ -81,7 +81,7 @@
         <div class="review-ratings">
           <div class="rating-bones">
             <% r.rating.times do %>
-            <i class="fas fa-bone" style="color: orange; font-size: 24px; transform: rotate(-45deg);"></i>
+            <i class="fas fa-bone" style="color: #FF5959; font-size: 24px; transform: rotate(-45deg);"></i>
             <% end %>
           </div>
 
@@ -99,7 +99,7 @@
 
     <% if @activity.owner != current_user %>
     <div class="review-form">
-      <p id="new_review" class="text-center" style="color: orange; font-size: 20px; cursor: pointer">
+      <p id="new_review" class="text-center" style="color: #FF5959; font-size: 20px; cursor: pointer">
         <i class="fas fa-pen">&nbsp;</i>Submit a review
       </p>
 

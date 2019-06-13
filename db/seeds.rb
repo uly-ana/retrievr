@@ -17,70 +17,40 @@ dog_stories = ['Yolanda Sevogia\'s neighbor, Stacey Savige, knocked on her door 
   'This adopted dog proved his worth, and then some. One night Duke woke up his owners by shaking uncontrollably on their bed, trying to get their attention. Their nine-week-old infant Hazel wasn\'t breathing in the other room, and without his intervention they never would have noticed.'
 ]
 
-# puts 'Cleaning Database'
+dog_scale = []
 
-# Order.destroy_all
-# Place.destroy_all
-# Favorite.destroy_all
-# ActivityReview.destroy_all
-# Activity.destroy_all
-# Dog.destroy_all
-# Guest.destroy_all
-# User.destroy_all
+act_photos = ['http://www.hamiltonhumane.com/wp-content/uploads/2018/08/Barktoberfest-Updated-Logo_FINAL-24-1024x618.png', ]
 
-# puts 'Database cleaned'
+puts 'Cleaning Database'
 
-# puts 'Creating users'
-# 10.times do
-#   user = User.create!(
-#     email: Faker::Internet.email,
-#     username: Faker::Internet.username,
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     bio: Faker::Lorem.characters(11),
-#     password: '123456',
-#     remote_avatar_url: url
-#     )
-# end
+Order.destroy_all
+Place.destroy_all
+Favorite.destroy_all
+ActivityReview.destroy_all
+Activity.destroy_all
+Dog.destroy_all
+Guest.destroy_all
+User.destroy_all
 
-# puts 'Creating Rayhan'
+puts 'Database cleaned'
 
-# User.create!(
-#   email: 'rayhan.wirjowerdojo@gmail.com',
-#   username: 'rayhanw',
-#   first_name: 'Rayhan',
-#   last_name: 'wirjowerdojo',
-#   bio: 'I have a cat, but now I have a dog and I love my dog and cat!!',
-#   password: '123456',
-#   remote_avatar_url: url
-#   )
+puts 'Creating Rayhan'
 
-# puts '---------------'
+User.create!(
+  email: 'rayhan.wirjowerdojo@gmail.com',
+  username: 'rayhanw',
+  first_name: 'Rayhan',
+  last_name: 'wirjowerdojo',
+  bio: 'I have a cat, but now I have a dog and I love my dog and cat!!',
+  password: '123456',
+  remote_avatar_url: url
+  )
 
-# puts 'Creating dogs'
-# 5.times do
-#   i = 0
-#   Dog.create!(
-#     my_story: dog_stories[i],
-#     user_id: rand(1..10),
-#     name: Faker::Name.name
-#     )
-#   i += 1
-# end
+puts '---------------'
 
-# puts '---------------'
-# file_url = 'https://docs.google.com/spreadsheets/d/10iK0Cju6H6VWgntqRX6Yd9y8mDPBVNfxMabX9SZgL1I/edit?usp=sharing'
-
-# file = 'seed.csv'
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
-# p csv_text
-
-User.create!(email: 'rayhan@gmail.com', first_name: 'R', last_name: 'W', password: '121212', bio: 'abcdefghij', username: 'rayhanw')
-
 CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
-  # puts "#{row['name']} | #{row['description']} | #{row['address']} | #{row['date']} | #{row['price']} | #{row['category']} | #{row['limit of guests']} | #{row['dog_size']}"
   name = row[1]
   desc = row[2]
   address = row[3]
@@ -89,6 +59,7 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
   cat = row[6]
   limit = row[7]
   dog_size = row[9]
+  photo = row[10]
 
   act = Activity.create!(
     name: name,
@@ -102,14 +73,32 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
     owner: User.first
   )
   ActivityPhoto.create!(
-    remote_photo_url: 'https://ichef.bbci.co.uk/news/660/cpsprodpb/16BB/production/_106591850_untitleddesign-3.jpg',
+    remote_photo_url: photo,
     activity: act
     )
 end
 
-# puts '------------'
+puts '---------------'
+puts 'Creating places'
 
+CSV.foreach(Rails.root.join('lib', 'seeds', 'places_seed.csv'), csv_options) do |row|
+  plc = Place.create!(
+    name: row[1],
+    category: row[2],
+    location: row[3],
+    dogginess_scale: row[4],
+    user: User.first
+  )
+  PlacePhoto.create!(
+    place: plc,
+    remote_photo_url: row[5]
+  )
+end
 
+puts '------------'
+
+puts 'Done'
+puts 'enjoy'
 # puts '------------'
 
 # puts 'Creating places'
