@@ -36,6 +36,7 @@ button:focus {
 }
 
 .btn {
+  max-width: none !important;
   width: 100%;
   margin-bottom: 20px;
   background-color: #FF5959;
@@ -45,5 +46,13 @@ button:focus {
   &:hover {
     background-color: #dc4c4c;
     color: white;
+  }
+}
+
+.button_to {
+  button {
+    background: none;
+    border: none;
+    margin-top: 4px;
   }
 }

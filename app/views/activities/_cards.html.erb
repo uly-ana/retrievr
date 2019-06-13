@@ -8,8 +8,21 @@
           <% end %>
           <div class="card-trip-infos">
             <h4><%= activity.name %></h4>
-            <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
+            <% if activity.price == 0 %>
+              <p>FREE</p>
+            <% else %>
+              <p><%= humanized_money_with_symbol(activity.price) %></p>
+            <% end %>
           </div>
+          <% if current_user %>
+            <div class="card-favorite">
+            <% if Favorite.find_by(activity: activity, user: current_user) %>
+              <%= render 'favorites/delete', activity: activity %>
+            <% else %>
+              <%= render 'favorites/create', activity: activity %>
+            <% end %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
