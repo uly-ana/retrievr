@@ -17,7 +17,7 @@ class ActivityReviewsController < ApplicationController
       redirect_to activity_path(@activity)
     else
       flash[:error] = "Error creating review: #{@activity_review.errors}"
-      render :new
+      render 'activities/show'
     end
   end
 
