@@ -9,6 +9,11 @@
   padding-bottom: 32px;
 }
 
+.about-text {
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
 .hr {
   height: 1px;
   border: none;
@@ -23,7 +28,9 @@
 }
 
 #about-title {
-  color: #FFA500 !important;
+  color: #FF5959 !important;
+  margin-top: 40px;
+  padding-bottom: 20px;
   h1 {
     font-weight: 200;
     margin: 36px, 0px;
@@ -32,7 +39,9 @@
 }
 
 #ourteam {
-  color: #FFA500 !important;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  color: #FF5959 !important;
   h2 {
     font-weight: 150;
     margin: 36px, 0px;
@@ -41,7 +50,7 @@
 }
 
 .card-team {
-  background-color: #FFFAF7;
+  background-color: #FFF8F8;
   position: inherit;
 }
 
