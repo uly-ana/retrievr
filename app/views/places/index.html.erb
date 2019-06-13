@@ -11,7 +11,10 @@
       <% @places.each do |place| %>
         <%= link_to place_path(place) do %>
           <div class="card-trip card-plc mb-3">
-            <%= cl_image_tag place.place_photos.sample.photo, crop: :fill %>
+            <% if place.place_photos.present? %>
+              <%= cl_image_tag place.place_photos.sample.photo, crop: :fill %>
+            <% end %>
+
             <div class="card-trip-infos">
               <h5><%= place.name %></h5>
               <p class="activity-time"><%= place.category %></p>

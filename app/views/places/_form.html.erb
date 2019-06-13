@@ -4,38 +4,38 @@
       <br>
       <h2>Create a new place</h2>
 
-<%= simple_form_for @place, html: { multipart: true } do |f| %>
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :name, class: 'form-control' %>
-  </div>
-    
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :location, id: 'place-location' %>
-  </div>
+      <%= simple_form_for @place, html: { multipart: true } do |f| %>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.input :name, class: 'form-control' %>
+        </div>
 
-  <div class="col-sm-12 col-md-12 col-lg-12">
-  <%= f.input :category, collection: ['Hotels', 'Restaurants', 'Parks & Outdoors', 'Services', 'Supplies'], class: 'form-control' %>
-  </div>
-  
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :dogginess_scale, collection: ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status'], class: 'form-control' %>
-  </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.input :location, id: 'place-location' %>
+        </div>
 
-  <div class="col-sm-6 col-md-12 col-lg-6 mb-2" id="upload-btn-wrapper">
-    <%= f.fields_for :place_photos do |p| %>
-      <div class="field">
-        <%= f.label :photo %>
-        <br>
-        <%= f.file_field :photo, multiple: true %>
-      </div>
-    <% end %>
-    <br>
-  </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+        <%= f.input :category, collection: ['Hotels', 'Restaurants', 'Parks & Outdoors', 'Services', 'Supplies'], class: 'form-control' %>
+        </div>
 
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.submit "Create Place", class: 'btn btn-login'  %>
-  </div>
-<% end %>
-</div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.input :dogginess_scale, collection: ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status'], class: 'form-control' %>
+        </div>
+
+        <div class="col-sm-6 col-md-12 col-lg-6 mb-2" id="upload-btn-wrapper">
+          <%= f.fields_for :place_photos do |p| %>
+            <div class="field">
+              <%= f.label :photo %>
+              <br>
+              <%= f.file_field :photo, multiple: true %>
+            </div>
+          <% end %>
+          <br>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.submit "Create Place", class: 'btn btn-login'  %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
