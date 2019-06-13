@@ -12,6 +12,7 @@
                 <p><strong>Price</strong></p>
                 <p><strong>Location</strong></p>
                 <p><strong>Category</strong></p>
+                <p><strong>Dog size</strong></p>
                 <p><strong>Creator</strong></p>
               </div>
 
@@ -20,6 +21,7 @@
                 <p><%= humanized_money_with_symbol(@activity.price) %></p>
                 <p><%= @activity.place.name %></p>
                 <p><%= @activity.category %></p>
+                 <p><%= @dog_size %></p>
                 <p><%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p>
               </div>
 

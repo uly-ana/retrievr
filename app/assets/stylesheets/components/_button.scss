@@ -1,10 +1,10 @@
 .btn-su {
-  background-color: #FFA605;
+  background-color: #FF5959;
   color: white;
   padding: 8px 24px;
   border-radius: 5px;
   &:hover {
-    background-color: #ce804a;
+    background-color: #dc4c4c;
   }
 }
 
@@ -28,14 +28,24 @@ button:focus {
 }
 
 .back-act {
-  color: #FFA605;
+  color: #FF5959;
   &:hover {
-  	color: #d68902;
+  	color: #dc4c4c;
   	text-decoration: none;
   }
 }
+
 .btn {
   max-width: none !important;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #FF5959;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 5px;
+  &:hover {
+    background-color: #dc4c4c;
+    color: white;
 }
 
 .button_to {

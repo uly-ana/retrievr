@@ -1,8 +1,11 @@
 #map {
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, .2);
   position: sticky;
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-right: 16px;
+
 }
 
 .mapboxgl-popup {
