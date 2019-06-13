@@ -10,19 +10,20 @@
     <div class="upcoming-events">
       <h2>Upcoming events</h2>
 
-      <% @activities = Activity.order(:time).first(2) %>
+      <% @activities = Activity.order(:time).first(3) %>
 
-      <div class="activity-card d-flex justify-content-around ">
+      <div class="d-flex justify-content-around align-items-center flex-wrap">
         <% @activities.each do |activity| %>
           <%= link_to activity_path(activity) do %>
             <div class="card-trip">
               <%= cl_image_tag activity.activity_photos.sample.photo, crop: :fill %>
               <div class="card-trip-infos">
-                <h4><%= activity.name %></h4>
+                <h5><%= activity.name %></h5>
+                <p class="activity-time"><%= activity.time.to_s.gsub(' UTC', '') %></p>
                 <% if activity.price == 0 %>
-                  <p>FREE</p>
+                  <p class="activity-price">FREE</p>
                 <% else %>
-                  <p><%= humanized_money_with_symbol(activity.price) %></p>
+                  <p class="activity-price"><%= humanized_money_with_symbol(activity.price) %></p>
                 <% end %>
               </div>
             </div>
@@ -43,15 +44,15 @@
       <h2>Recommended places</h2>
 
       <% @places = Place.first(4) %>
-      <div class="d-flex" style="justify-content: space-around; align-content: center; flex-wrap: wrap;">
+      <div class="d-flex justify-content-around align-items-center flex-wrap">
         <% @places.each do |place| %>
           <div style="margin-bottom: 30px;">
             <%= link_to place_path(place) do %>
               <div class="place-card d-flex" style="justify-content: left; align-items: center; flex-direction: column;">
-                <div class="place-card-img" style="width: 200px; height: 200px; background-image: url('<%= cl_image_path place.place_photos.sample.photo, crop: :fill %>'); border-top-left-radius: 4px; border-top-right-radius: 4px;">
+                <div class="place-card-img" style="width: 200px; height: 200px; background-image: url('<%= cl_image_path place.place_photos.sample.photo, crop: :fill %>')">
                 </div>
                 <div class="place-card-info" style="padding-top: 10px;">
-                  <h3><%= place.category %></h3>
+                  <h3><%= place.name %></h3>
                 </div>
               </div>
             <% end %>

@@ -8,7 +8,11 @@
           <% end %>
           <div class="card-trip-infos">
             <h4><%= activity.name %></h4>
-            <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
+            <% if activity.price == 0 %>
+              <p>FREE</p>
+            <% else %>
+              <p><%= humanized_money_with_symbol(activity.price) %></p>
+            <% end %>
           </div>
           <% if current_user %>
             <div class="card-favorite">
