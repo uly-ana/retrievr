@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="center">  
+  <div class="center">
   <div class="my-3">
     <h4 class="text-center">My orders</h4>
     <%= link_to 'Back to activities', activities_path, class: 'back-act' %>
@@ -13,7 +13,7 @@
           <p><u>Order ID</u>: <%= order.activity_id %></p>
           <p><u>Name</u>: <%= Activity.find(order.activity_id).name %></p>
           <p><u>Description</u>: <%= Activity.find(order.activity_id).description %></p>
-          <p><u>Date</u>: <%= Activity.find(order.activity_id).date %></p>
+          <p><u>Date</u>: <%= Activity.find(order.activity_id).time %></p>
           <p><u> Amount</u>: <%= humanized_money_with_symbol(order.activity.price) %></p>
           <p><u> Status</u>: <%= order.status %></p>
         </div>
