@@ -25,7 +25,7 @@ class Activity < ApplicationRecord
 
   def not_blank_date
     if !time.nil?
-      errors.add(:time, "Can't be in the past") if time < DateTime.today
+      errors.add(:time, "Can't be in the past") if time < DateTime.now
     end
   end
 end
