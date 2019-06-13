@@ -1,10 +1,17 @@
+<div class="container mb-5">
+  <div class="row center">
+    <div class="form-event">
+
 <%= simple_form_for @dog, :url => update_user_dog_path(@dog) do |f| %>
   <%= f.input :name,
               required: true %>
   <%= f.input :my_story,
               required: true %>
+  <%= f.input :dog_size, required: true, collection: @dog_size %>
   <div class="form-actions">
     <%= f.button :submit, "update" %>
   </div>
-
 <% end %>
+</div>
+</div>
+</div>

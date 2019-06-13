@@ -8,6 +8,7 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     @user = current_user
+    @dog_size = ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status']
     # @dog.user = @user
     authorize @dog
   end
@@ -35,6 +36,7 @@ class DogsController < ApplicationController
   end
 
   def edit
+    @dog_size = ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status']
     @dog = Dog.find(params[:id])
     @user = current_user
     authorize @dog
