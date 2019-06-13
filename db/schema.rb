@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_092343) do
+ActiveRecord::Schema.define(version: 2019_06_13_035058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_092343) do
     t.float "latitude"
     t.float "longitude"
     t.string "category"
-    t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_092343) do
     t.string "dog_size"
     t.datetime "time"
     t.index ["owner_id"], name: "index_activities_on_owner_id"
-    t.index ["place_id"], name: "index_activities_on_place_id"
   end
 
   create_table "activity_photos", force: :cascade do |t|
@@ -147,7 +145,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_092343) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "activities", "places"
   add_foreign_key "activities", "users", column: "owner_id"
   add_foreign_key "activity_photos", "activities"
   add_foreign_key "activity_reviews", "activities"

@@ -5,6 +5,7 @@
               required: true %>
   <%= f.input :breed,
               required: true %>
+  <%= f.input :dog_size, collection: @dog_size %>
   <div class="form-actions">
     <%= f.button :submit, "Add doggo" %>
   </div>
