@@ -14,7 +14,7 @@
 }
 
 .activity-description {
-  padding: 40px 0;
+  // padding: 40px 0;
   font-size: 20px;
 }
 
@@ -163,6 +163,7 @@ button.stripe-button-el>span {
 }
 
 .background-photo {
+  margin-top: 60px;
   background-color: #FFF8F8;
   padding-bottom: 40px;
 }
@@ -200,6 +201,9 @@ button.stripe-button-el>span {
   }
 }
 
+
+// Profile#show ################################################################
+
 .profile-banner {
   width: 100%;
   height: 40vh;
@@ -217,7 +221,7 @@ button.stripe-button-el>span {
 }
 
 .profile-container {
-  background-image: linear-gradient(#FF5959, #FFFFFF);
+  background-image: linear-gradient(#FFF8F8, #FFFFFF);
 }
 
 .user-info {
