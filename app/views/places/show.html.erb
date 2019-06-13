@@ -49,7 +49,7 @@
 
         <% if @place.user != current_user && PlaceReview.find_by(place: @place, user: current_user).nil? %>
           <p id="new_review" class="pt-3 text-center" style="color: orange; font-size: 20px; cursor: pointer">
-                <i class="fas fa-pen">&nbsp;</i>Submit a review
+            <i class="fas fa-pen">&nbsp;</i>Submit a review
           </p>
 
           <div class="my-3 place-review-form hide-form">
