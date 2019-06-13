@@ -1,6 +1,6 @@
 <%= simple_form_for [@place, @place_review] do |f| %>
   <%= f.input :rating, collection: 0..5 %>
   <%= f.input :content %>
-  <%= f.submit class: 'btn btn-su' %>
+  <%= f.submit 'Add Review', class: 'btn btn-su' %>
 <% end %>
 
