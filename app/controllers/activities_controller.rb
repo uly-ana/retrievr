@@ -41,7 +41,6 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.owner = @user
-    @activity_photos = @activity.activity_photos.build
     # @place = Place.find(params[:activity][:place])
     # @activity.place = @place
     authorize @activity
@@ -52,7 +51,6 @@ class ActivitiesController < ApplicationController
       end
       redirect_to activity_path(@activity)
     else
-      # @activity_photos = @activity.activity_photos.build
       render :new
     end
   end
@@ -86,6 +84,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :price, :description, :category, :date, :address, :limit, activity_photos_attributes: [:id, :photo])
+    params.require(:activity).permit(:name, :price, :description, :category, :date, :address, :limit, :dog_size, activity_photos_attributes: [:id, :photo])
   end
 end
