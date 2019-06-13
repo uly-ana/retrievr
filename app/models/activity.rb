@@ -19,7 +19,7 @@ class Activity < ApplicationRecord
   validates :category, presence: true
   validates :limit, presence: true
   validates :dog_size, presence: true, inclusion: { in: ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds'] }
-  validate :not_blank_date
+  # validate :not_blank_date
 
   private
 
