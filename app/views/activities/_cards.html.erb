@@ -10,6 +10,13 @@
             <h4><%= activity.name %></h4>
             <p><%= activity.owner.first_name %> <%= activity.owner.last_name %></p>
           </div>
+          <div class="card-favorite">
+            <% if Favorite.find_by(activity: activity, user: current_user) %>
+              <%= render 'favorites/delete', activity: activity %>
+            <% else %>
+              <%= render 'favorites/create', activity: activity %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
