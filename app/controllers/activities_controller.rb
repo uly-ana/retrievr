@@ -22,6 +22,7 @@ class ActivitiesController < ApplicationController
         end
       end
     end
+    @categories = @activities.all.map {|a| a.category}.uniq
   end
 
   def show
