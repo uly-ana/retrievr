@@ -4,11 +4,11 @@
   width: 100px;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid rgba(0, 0, 0, .4);
   border-radius: 5px;
-  color: white;
+  color: #FF5959;
   p {
-    border-right: 1px solid white;
+    border-right: 1px solid rgba(0, 0, 0, .4);
     margin: 0;
     padding: 4px 16px;
   }
@@ -20,7 +20,7 @@
 }
 
 .activity-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('bg.jpg');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('bg.jpg');
   background-attachment: fixed;
   background-position: center!important;
   background-size: cover;
