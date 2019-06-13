@@ -1,3 +1,9 @@
+<div class="container mb-5">
+  <div class="row center">
+    <div class="form-event">
+      <br>
+      <h2>Create a new place</h2>
+
 <%= simple_form_for @place, html: { multipart: true } do |f| %>
   <div class="col-sm-12 col-md-12 col-lg-12">
     <%= f.input :name, class: 'form-control' %>
@@ -27,6 +33,9 @@
   </div>
 
   <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.submit "Create Place", class: 'btn btn-outline-warning submit' %>
+    <%= f.submit "Create Place", class: 'btn btn-login'  %>
   </div>
 <% end %>
+</div>
+  </div>
+</div>

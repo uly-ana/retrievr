@@ -1,38 +1,48 @@
-<%= simple_form_for @activity, html: { multipart: true, class: 'row' } do |f| %>
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :name %>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.input :description, placeholder: 'minimum: 20 characters' %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-12">
-    <%= f.input :address %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-12">
-    <%= f.input :time %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-12">
-    <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :price, placeholder: '$00.00' %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-6">
-    <%= f.input :limit %>
-  </div>
-  <div class="col-sm-6 col-md-12 col-lg-12">
-    <%= f.input :dog_size, collection: @dog_size %>
-  </div>
-    <div class="col-sm-6 col-md-12 col-lg-12 my-2" id="upload-btn-wrapper">
-    <%= f.fields_for :activity_photos do |p| %>
-      <label class="field">
-        <%= f.file_field :photo, multiple: true %>
-      </label>
-    <% end %>
-    <br>
-  </div>
+<div class="container mb-5">
+  <div class="row center">
+    <div class="form-event">
+      <br>
+      <h2> Create New Event </h2>
 
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <%= f.submit "Create Event", class: 'btn btn-outline-warning submit'  %>
+      <%= simple_form_for @activity, html: { multipart: true, class: 'row' } do |f| %>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.input :name %>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.input :description, placeholder: 'minimum: 20 characters' %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-12">
+          <%= f.input :address %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-12">
+          <%= f.input :time %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-12">
+          <%= f.input :category, collection: ['Pool', 'Feast', 'Gathering', 'Party', 'Competition', 'Other'] %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-6">
+          <%= f.input :price, placeholder: '$00.00' %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-6">
+          <%= f.input :limit %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-12">
+          <%= f.input :dog_size, collection: @dog_size %>
+        </div>
+        <div class="col-sm-6 col-md-12 col-lg-12 my-2" id="upload-btn-wrapper">
+          <%= f.fields_for :activity_photos do |p| %>
+        <label class="field">
+              <%= f.file_field :photo, multiple: true %>
+        </label>
+        <% end %>
+          <br>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <%= f.submit "Create Event", class: 'btn btn-login'  %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
