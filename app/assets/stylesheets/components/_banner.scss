@@ -1,6 +1,6 @@
 .banner {
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), asset-url('ocean.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -11,6 +11,7 @@
     font-size: 72px;
     font-family: $title-font;
     font-weight: bold;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
   }
   h3 {
     color: white;
