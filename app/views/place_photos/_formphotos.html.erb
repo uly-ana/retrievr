@@ -1,0 +1,5 @@
+<%= form_for([@place, PlacePhoto.new]) do |f| %>
+  <%= f.hidden_field :place_id, class: "activity-photo-field" %>
+  <%= f.file_field :photo %>
+  <%= f.submit 'Upload picture', class: "btn-photo" %>
+<% end %>
