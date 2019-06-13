@@ -54,7 +54,7 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
   name = row[1]
   desc = row[2]
   address = row[3]
-  dates = row[4]
+  dates = DateTime.now + rand(1..1000)
   price = row[5]
   cat = row[6]
   limit = row[7]
