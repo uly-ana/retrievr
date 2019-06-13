@@ -5,13 +5,13 @@ section ul li {
   float: left;
   list-style: none;
   a {
-    color: #454545;
+    color: #FF7979;
   }
 }
 
 section {
   span a {
-    color: #454545;
+    color: #FF7979;
   }
 }
 
@@ -20,23 +20,24 @@ section {
   color: #454545;
 }
 
+
 .footer-buttons {
   li {
     a {
-      color: #454545;
+      color: #FF7979;
     }
   }
 }
 
 .footer-contacts {
   p, a {
-    color: #454545;
+    color: #FF7979;
   }
 }
 
 #twitter-tag {
   a {
-    color: #454545;
+    color: #FF7979;
   }
 }
 
@@ -48,8 +49,8 @@ section {
 }
 
 .footer {
-  background-color: #FF7979;
-  color: #454545;
+  background-color: #F4F4F4;
+  color: #FF7979;
   position: relative;
   max-width: 100%;
   font-size: 14px;
@@ -62,7 +63,10 @@ section {
 }
 
 #footer-social h6 {
-  color: #454545;
+  color: #FF7979;
+}
+.fab {
+  margin-right: 10px;
 }
 
 #footer-social-icons {
@@ -86,6 +90,6 @@ section {
 
 #footer-social-icons {
   a {
-    color: #454545;
+    color: #FF7979;
   }
 }
