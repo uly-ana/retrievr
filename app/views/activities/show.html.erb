@@ -6,12 +6,12 @@
       <div class="activity-details">
         <div class="act-details">
           <div class="activity-details-category">
-            <div><p><strong>Date:</strong></p><p> <%= @activity.time %></p></div>
-            <div><p><strong>Price:</strong></p><p id="price"> <%= humanized_money_with_symbol(@activity.price) %></p></div>
+            <div><p><strong>Date:</strong></p><p class="text-right"> <%= @activity.time %></p></div>
+            <div><p><strong>Price:</strong></p><p id="price" class="text-right"> <%= humanized_money_with_symbol(@activity.price) %></p></div>
             <div><p><strong>Location:</strong></p><p class="text-right"> <%= @activity.address %></p></div>
-            <div><p><strong>Category:</strong></p><p> <%= @activity.category %></p></div>
-             <div><p><strong>Category:</strong></p><p><%= @activity.dog_size %></p></div>
-            <div><p><strong>Creator:</strong></p><p> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p></div>
+            <div><p><strong>Category:</strong></p><p class="text-right"> <%= @activity.category %></p></div>
+             <div><p><strong>Dog Size:</strong></p><p class="text-right"><%= @activity.dog_size %></p></div>
+            <div><p><strong>Creator:</strong></p><p class="text-right"> <%= @activity.owner.first_name %> <%= @activity.owner.last_name %></p></div>
             <br>
           </div>
           <div class="payment-act text-center">
