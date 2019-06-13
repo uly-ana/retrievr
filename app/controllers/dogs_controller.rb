@@ -36,6 +36,7 @@ class DogsController < ApplicationController
   end
 
   def edit
+    @dog_size = ['1. Lowest pet-friendliness', '2. Below average pet-friendliness', '3. Average pet-friendliness', '4. Exceptional pet-friendliness', '5. Dogs have near-human status']
     @dog = Dog.find(params[:id])
     @dog_size = ['Toy - up to 12 pounds', 'Small - 12 to 25 pounds', 'Medium - 25 to 50 pounds', 'Large - 50 to 100 pounds', 'Extra Large - over 100 pounds']
     @user = current_user
