@@ -129,6 +129,13 @@
 
 .card-act {
   width:300px !important;
+  position: relative;
+}
+
+.card-favorite {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .card-plc {
