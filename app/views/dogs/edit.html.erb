@@ -1,3 +1,5 @@
+
+<div class="container">
 <%= simple_form_for @dog, url: update_user_dog_path(@dog) do |f| %>
   <%= f.input :name,
               required: true %>
@@ -12,3 +14,4 @@
     <%= f.button :submit, "Update dog" %>
   </div>
 <% end %>
+</div>

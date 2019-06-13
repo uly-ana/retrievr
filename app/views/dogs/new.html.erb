@@ -1,3 +1,8 @@
+<div class="container mb-5">
+  <div class="row center">
+    <div class="form-event">
+      <br>
+<h2> Add Your Dog </h2>
 <%= simple_form_for [@user, @dog] do |f| %>
   <%= f.input :name,
               required: true %>
@@ -12,3 +17,6 @@
     <%= f.button :submit, "Add doggo" %>
   </div>
 <% end %>
+  </div>
+  </div>
+</div>
