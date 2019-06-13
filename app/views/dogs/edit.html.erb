@@ -1,10 +1,14 @@
-<%= simple_form_for @dog, :url => update_user_dog_path(@dog) do |f| %>
+<%= simple_form_for @dog, url: update_user_dog_path(@dog) do |f| %>
   <%= f.input :name,
               required: true %>
   <%= f.input :my_story,
               required: true %>
+  <%= f.input :breed %>
+  <%= f.input :dog_size,
+  			      collection: @dog_size %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <div class="form-actions">
-    <%= f.button :submit, "update" %>
+    <%= f.button :submit, "Update dog" %>
   </div>
-
 <% end %>

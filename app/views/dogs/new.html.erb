@@ -6,6 +6,8 @@
   <%= f.input :breed,
               required: true %>
   <%= f.input :dog_size, collection: @dog_size %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <div class="form-actions">
     <%= f.button :submit, "Add doggo" %>
   </div>
