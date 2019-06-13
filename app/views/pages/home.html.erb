@@ -43,22 +43,20 @@
     <div class="recommended-places">
       <h2>Recommended places</h2>
 
-      <% @places = Place.first(4) %>
-      <div class="d-flex justify-content-around align-items-center flex-wrap">
+      <% @places = Place.first(3) %>
+      <div class="d-flex justify-content-between align-items-center flex-wrap">
         <% @places.each do |place| %>
-          <div style="margin-bottom: 30px;">
-            <%= link_to place_path(place) do %>
-              <div class="place-card d-flex" style="justify-content: left; align-items: center; flex-direction: column;">
-                <div class="place-card-img" style="width: 200px; height: 200px; background-image: url('<%= cl_image_path place.place_photos.sample.photo, crop: :fill %>')">
-                </div>
-                <div class="place-card-info" style="padding-top: 10px;">
-                  <h3><%= place.name %></h3>
-                </div>
+          <%= link_to place_path(place) do %>
+            <div class="card-trip">
+              <%= cl_image_tag place.place_photos.sample.photo, crop: :fill %>
+              <div class="card-trip-infos">
+                <h5><%= place.name %></h5>
+                <p class="activity-time"><%= place.category %></p>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% end %>
-
+      </div>
     </div>
   </div>
 </div>
