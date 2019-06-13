@@ -34,10 +34,16 @@
   </div>
 <% end %>
 
-<p> <%= link_to "Back", :back %></p>
+<p> <%= link_to "Back", :back, {style: 'color: #454545'} %></p>
 
-<p> Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p> Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-grey' %></p>
 
  </div>
   </div>
 </div>
+
+<style>
+  .text-grey {
+    color: #454545;
+  }
+</style>
