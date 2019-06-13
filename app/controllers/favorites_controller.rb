@@ -8,17 +8,15 @@ class FavoritesController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     @favorite.activity = @activity
     @favorite.user = @user
-    # raise
 
     authorize @favorite
-    # byebug
+
     @favorite.save ? flash[:notice] = 'Added to favorites' : flash[:error] = 'Error!'
 
     respond_to do |format|
       format.html
 
       format.js do
-        # raise
         render :create
       end
     end
