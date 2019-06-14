@@ -33,7 +33,7 @@ Guest.destroy_all
 User.destroy_all
 
 puts 'Database cleaned'
-
+puts '----------------'
 puts 'Creating Rayhan'
 
 User.create!(
@@ -44,7 +44,7 @@ User.create!(
   bio: 'I have a cat, but now I have a dog and I love my dog and cat!!',
   password: '123456',
   remote_avatar_url: url
-  )
+)
 
 puts '---------------'
 
@@ -75,7 +75,13 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'seed.csv'), csv_options) do |row|
   ActivityPhoto.create!(
     remote_photo_url: photo,
     activity: act
-    )
+  )
+  ActivityReview.create!(
+    rating: 5,
+    content: ['Amazing activity, would love to go again!!', 'Very lovely activity, I would recommend anyone to join!', 'Had a lovely time, lovely people, and lovely dogs!!'].sample,
+    activity: act,
+    user: User.first  
+  )
 end
 
 puts '---------------'
