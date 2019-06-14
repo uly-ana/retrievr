@@ -11,10 +11,20 @@
       <div class="category-filter">
         <p id="category"><strong>Category</strong></p>
         <ul class="category">
-          <% @activities.all.map {|a| a.category}.uniq.each do |cat| %>
+          <% @activities.all.map { |a| a.category }.uniq.each do |cat| %>
             <li>
               <%= link_to cat, activities_path(category: cat), remote: true %>
             </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="time-filter">
+        <p id="category"><strong>Dog Size</strong></p>
+        <ul class="category">
+          <% @activities.all.map { |a| a.dog_size }.uniq.each do |size| %>
+            <li>
+              <%= link_to size, activities_path(dog_size: size), remote: true %>
+              </li>
           <% end %>
         </ul>
       </div>

@@ -17,6 +17,8 @@ class ActivitiesController < ApplicationController
           @activities = Activity.order(price_cents: params[:price])
         elsif params[:category].present?
           @activities = Activity.where(category: params[:category])
+        elsif params[:dog_size].present?
+          @activities = Activity.where(dog_size: params[:dog_size])
         else
           @activities = Activity.all
         end
